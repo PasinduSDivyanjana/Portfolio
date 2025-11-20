@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasindu S Divyanjana | Experiences</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Experience_Style.css" />
+
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Animated background particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Mobile menu toggle -->
+  <button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-header">
+        <div class="nav-logo">Pasindu S Divyanjana</div>
+        <div class="nav-subtitle">Undergraduate</div>
+    </div>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="About_Me.html"><i class="fas fa-user"></i>About</a></li>
+        <li><a href="Experience.html" class="active"><i class="fas fa-layer-group"></i>Experiences</a></li>
+        <li><a href="Education.html"><i class="fa-solid fa-graduation-cap"></i>Education</a></li>
+        <li><a href="Project.html"><i class="fas fa-project-diagram"></i>Projects</a></li>
+        <li><a href="Certificates.html"><i class="fa-solid fa-award"></i>Certificates & Achievements</a></li>
+        <li><a href="Contact_Me.html"><i class="fas fa-envelope"></i>Contact Me</a></li>
+      </ul>
+          <div class="nav-footer">
+              <div class="nav-logo-footer">Designed by,</div>
+          <div class="nav-subtitle-footer">Pasindu S Divyanjana | 2025</div>
+  </nav>
+
+  <main>
+    <div class="Experience_Head">
+      <h1>Professional Journey</h1>
+    </div>
+
+    <div class="Experience-Timeline">
+
+      <div class="Timeline-Item">
+        <div class="Timeline-Dot" onclick="highlightCard(this)"></div>
+        <div class="Experience-Card" data-experience="90">
+          <!-- <div class="status-badge">Recent</div> -->
+          <div class="Experience-Header">
+            <div class="APIIT-Logo">
+              <img src="Images/Experience/Jet Logo.jpg" alt="Jet Shipping Logo" class="Experience-Logo" />
+            </div>
+            <div class="Experience-Info">
+              <h3>IT Consultant & Web Developer</h3><br>
+              <h4>Jet Shipping & Logistic Sdn. Bhd.</h4>
+              <div class="Specialization">Full Time</div>
+              <div class="Experience-Meta">
+                <span class="Duration"><i class="fas fa-calendar"></i>2022 - Present </span>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="skills-gained">
+            <h5>Skills & Technologies:</h5>
+            <div class="skill-tags">
+              <div class="skill-tag">Power Generation</div>
+              <div class="skill-tag">Power Distribution</div>
+              <div class="skill-tag">Safety Protocols</div>
+              <div class="skill-tag">Grid Management</div>
+              <div class="skill-tag">Maintenance</div>
+            </div>
+          </div> -->
+          <div class="experience-level">
+            <div class="experience-bar" style="--experience: 0%"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="Experience_Script.js"></script>
+</body>
+</html>

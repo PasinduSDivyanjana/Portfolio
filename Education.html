@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasindu S Divyanjana | Education</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Education_Style.css" />
+
+</head>
+<body>
+  <!-- Animated background particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Mobile menu toggle -->
+  <button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+<nav id="navbar">
+    <div class="nav-header">
+        <div class="nav-logo">Pasindu S Divyanjana</div>
+        <div class="nav-subtitle">Undergraduate</div>
+    </div>
+      <ul>
+        <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+        <li><a href="About_Me.html"><i class="fas fa-user"></i>About</a></li>
+        <li><a href="Experience.html"><i class="fas fa-layer-group"></i>Experiences</a></li>
+        <li><a href="Education.html" class="active"><i class="fa-solid fa-graduation-cap"></i>Education</a></li>
+        <li><a href="Project.html"><i class="fas fa-project-diagram"></i>Projects</a></li>
+        <li><a href="Certificates.html"><i class="fa-solid fa-award"></i>Certificates & Achievements</a></li>
+        <li><a href="Contact_Me.html"><i class="fas fa-envelope"></i>Contact Me</a></li>
+      </ul>
+      <div class="nav-footer">
+        <div class="nav-logo-footer">Designed by,</div>
+      <div class="nav-subtitle-footer">Pasindu S Divyanjana | 2025</div>
+  </nav>
+
+  <main>
+    <div class="Education_Head">
+      <h1>Education Journey</h1>
+    </div>
+
+    <!-- BSc Education -->
+    <div class="Education-Timeline">
+      <div class="Timeline-Item">
+        <div class="Timeline-Dot" onclick="highlightCard(this)"></div>
+        <div class="Timeline-Content">
+          <div class="Education-Card" data-progress="90"> <!--Update the Prograss percentage-->
+            <!-- <div class="achievement-badge">Current</div> -->
+            <div class="Education-Header">
+              <div class="University-Logo">
+                <img src="Images/Education/SLIIT Logo.png" alt="SLIIT Logo" class="Edu-Logo" />
+              </div>
+              <div class="Education-Info">
+                <h3>BSc (Hons) in Information Technology (Specializing in Software Engineering)</h3><br>
+                <h4>Sri Lanka Institute of Information Technology (SLIIT)</h4>
+                <div class="Specialization">Software Engineering</div>
+                <div class="Education-Meta">
+                  <span class="Duration"><i class="fas fa-calendar"></i>2023 - Present</span>
+                  <span class="GPA"><i class="fas fa-star"></i>Current GPA: 3.35</span>
+                </div>
+              </div>
+            </div>
+            <div class="progress-indicator">
+              <div class="progress-bar" style="--progress: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- A/L Education -->
+      <div class="Timeline-Item">
+        <div class="Timeline-Dot" onclick="highlightCard(this)"></div>
+        <div class="Timeline-Content">
+          <div class="Education-Card" data-progress="100"> <!--Update the Prograss percentage-->
+            <!-- <div class="achievement-badge">Excellent</div> -->
+            <div class="Education-Header">
+              <div class="School-Logo">
+                <img src="Images/Education/BC Logo.png" alt="BC Logo" class="Edu-Logo" />
+              </div>
+              <div class="Education-Info"> 
+                <h3>Bandaranayake College Gampaha</h3><br>
+                <h4>G.C.E Advanced Level Examination</h4>
+                <div class="Specialization">Physical Science Stream</div>
+                <div class="Education-Meta">
+                  <span class="Duration"><i class="fas fa-calendar"></i>2020</span>
+                  <span class="Grade"><i class="fas fa-trophy"></i> Combined Mathematics - C, Chemistry- C, Physics - C</span>
+                </div>
+                <br><br><br>
+                <h4>G.C.E Ordinary Level Examination</h4>
+                <div class="Education-Meta">
+                  <span class="Duration"><i class="fas fa-calendar"></i>2016</span>
+                  <span class="Grade"><i class="fas fa-trophy"></i>Mathematics - A, Science - A, Buddhism - A, Sinhala Language & Literature - A, History - A, Civic Education - A, Health & Physical Education - A, English - B, Drama & Theatre - B</span>
+                </div>
+                <br><br><br>
+                <h4>G.C.E Ordinary Level Examination</h4>
+                <div class="Education-Meta">
+                  <span class="Duration"><i class="fas fa-calendar"></i>2017</span>
+                  <span class="Grade"><i class="fas fa-trophy"></i>Tamil - C</span>
+                </div>
+              </div>
+            </div>
+            <div class="progress-indicator">
+              <div class="progress-bar" style="--progress: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Primary Education -->
+      <div class="Timeline-Item">
+        <div class="Timeline-Dot" onclick="highlightCard(this)"></div>
+        <div class="Timeline-Content">
+          <div class="Education-Card" data-progress="90"> <!--Update the Prograss percentage-->
+            <!-- <div class="achievement-badge">Outstanding</div> -->
+            <div class="Education-Header">
+              <div class="School-Logo_1">
+                <img src="Images/Education/Sebastian Logo.jpg" alt="St. Sebastian's College Logo" class="Edu-Logo" />
+              </div>
+              <div class="Education-Info">
+                <h3>St. Sebastian's College Kandana</h3><br> <br>
+                <h4>Grade 5 Scholarship Examination</h4>
+                <div class="Education-Meta">
+                  <span class="Duration"><i class="fas fa-calendar"></i>2010</span>
+                  <span class="Grade"><i class="fas fa-trophy"></i>Score: 163(Cut off Mark - 148)</span>
+                </div>
+              </div>
+            </div>
+            <div class="progress-indicator">
+              <div class="progress-bar" style="--progress: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="Education_Script.js"></script>
+</body>
+</html>

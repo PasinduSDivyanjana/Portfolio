@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pasindu S Divyanjana | Projects</title>
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="Project.css" />
+
+</head>
+<body>
+  <!-- Mobile Menu Toggle -->
+  <button class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+<!-- Navigation -->
+<nav id="navbar">
+    <div class="nav-header">
+        <div class="nav-logo">Pasindu S Divyanjana</div>
+        <div class="nav-subtitle">Undergraduate</div>
+    </div>
+    <ul>
+      <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="About_Me.html"><i class="fas fa-user"></i> About</a></li>
+      <li><a href="Experience.html"><i class="fas fa-layer-group"></i> Experiences</a></li>
+      <li><a href="Education.html"><i class="fa-solid fa-graduation-cap"></i> Education</a></li>
+      <li><a href="Project.html" class="active"><i class="fas fa-project-diagram"></i> Projects</a></li>
+      <li><a href="Certificates.html"><i class="fa-solid fa-award"></i> Certificates & Achievements</a></li>
+      <li><a href="Contact_Me.html"><i class="fas fa-envelope"></i> Contact Me</a></li>
+    </ul>
+    <div class="nav-footer">
+        <div class="nav-logo-footer">Designed by,</div>
+    <div class="nav-subtitle-footer">Pasindu S Divyanjana | 2025</div>
+  </nav>
+
+  <main>
+    <section class="project" id="project">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="heading">Featured <span>Projects</span></h2>
+          <div class="heading-line"></div>
+        </div>
+
+        <div class="projects-grid">
+
+          <!-- Project 1: Jet Shipping -->
+          <div class="project-card" data-repo="JetShipping">
+            <div class="project-image">
+              <img src="Images/Projects/Jet Shipping.png" alt="JetShipping" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  <button class="project-link" onclick="openProjectDetails('JetShipping')">
+                    <i class="fas fa-info-circle"></i>
+                  </button>
+                  <!-- <a href="https://www.figma.com/design/U9X39TSNdPatRaMipLLbGW/Public-Transportation-App?node-id=0-1&p=f&t=2TSxMN0w8HLeIUoz-0" class="project-link github-link" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-github"></i> -->
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-category">Front-End • Kotlin (Android App)</div>
+              <h3>Jet Shipping Cargo - Malaysia App</h3>
+              <p>This is a user-friendly mobile application designed to simplify the process of ordering the cargo boxes from Malaysia. It allows users to order empty boxes, view box prices, and receive delivery updates.</p>
+              <div class="project-tech">
+                <span class="tech-tag">Android App Development</span>
+                <span class="tech-tag">Android Studio</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Jet Shipping Modal -->
+          <div id="JetShipping" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="closeModal('JetShipping')">&times;</span>
+              <h3>Jet Shipping Cargo - Malaysia App</h3>
+              <p>This is a user-friendly mobile application designed to simplify the process of ordering the cargo boxes from Malaysia. It allows users to order empty boxes, view box prices, and receive delivery updates.</p>
+              
+              <h4>🎯 Key Features:</h4>
+              <ul>
+                <li>Place order empty Boxes.</li>
+                <li>Location Tracking of the cargo.</li>
+                <li>Price and calculating.</li>
+              </ul>
+
+              <div class="modal-tech-stack">
+                <span class="modal-tech-tag">Android App Development</span>
+                <span class="modal-tech-tag">Android Studio</span>
+              </div>
+            </div>
+          </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script src="Project_Script.js"></script>
+</body>
+</html>
