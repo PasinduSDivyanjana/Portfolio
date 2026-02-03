@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page-suffix="Education">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,24 +17,8 @@
     <i class="fas fa-bars"></i>
   </button>
 
-<nav id="navbar">
-    <div class="nav-header">
-        <div class="nav-logo">Pasindu S Divyanjana</div>
-        <div class="nav-subtitle">Undergraduate</div>
-    </div>
-      <ul>
-        <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-        <li><a href="About_Me.html"><i class="fas fa-user"></i>About</a></li>
-        <li><a href="Experience.html"><i class="fas fa-layer-group"></i>Experiences</a></li>
-        <li><a href="Education.html" class="active"><i class="fa-solid fa-graduation-cap"></i>Education</a></li>
-        <li><a href="Project.html"><i class="fas fa-project-diagram"></i>Projects</a></li>
-        <li><a href="Certificates.html"><i class="fa-solid fa-award"></i>Certificates & Achievements</a></li>
-        <li><a href="Contact_Me.html"><i class="fas fa-envelope"></i>Contact Me</a></li>
-      </ul>
-      <div class="nav-footer">
-                <!-- <div class="nav-logo-footer">Designed by,</div> -->
-            <div class="nav-subtitle-footer">© Pasindu S Divyanjana 2025</div>
-  </nav>
+<!-- Navigation (loaded from components/navigation.html) -->
+<div id="nav-container"></div>
 
   <main>
     <div class="Education_Head">
@@ -136,6 +120,9 @@
     </div>
   </main>
 
+  <script src="data/personal-data.js"></script>
+  <script src="scripts/load-navigation.js"></script>
+  <script src="scripts/data-loader.js"></script>
   <script src="Education_Script.js"></script>
 </body>
 </html>

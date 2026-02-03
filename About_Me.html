@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page-suffix="About">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -24,26 +24,8 @@
         <div class="scroll-progress" id="scrollProgress"></div>
     </div>
 
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-header">
-            <div class="nav-logo">Pasindu S Divyanjana</div>
-            <div class="nav-subtitle">Undergraduate</div>
-        </div>
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i> <span>Home</span></a></li>
-                <li><a href="About_Me.html" class="active"><i class="fas fa-user"></i> <span>About</span></a></li>
-                <li><a href="Experience.html"><i class="fas fa-layer-group"></i> <span>Experiences</span></a></li>
-                <li><a href="Education.html"><i class="fa-solid fa-graduation-cap"></i> <span>Education</span></a></li>
-                <li><a href="Project.html"><i class="fas fa-project-diagram"></i> <span>Projects</span></a></li>
-                <li><a href="Certificates.html"><i class="fa-solid fa-award"></i> <span>Certificates & Achievements</span></a></li>
-                <li><a href="Contact_Me.html"><i class="fas fa-envelope"></i> <span>Contact Me</span></a></li>
-            </ul>
-            <div class="nav-footer">
-                <!-- <div class="nav-logo-footer">Designed by,</div> -->
-            <div class="nav-subtitle-footer">© Pasindu S Divyanjana 2025</div>
-        </div>
-    </nav>
+    <!-- Navigation (loaded from components/navigation.html) -->
+    <div id="nav-container"></div>
 
     <!-- Main Content -->
     <main>
@@ -51,30 +33,24 @@
             <!-- Header Section -->
             <div class="about-header fade-in">
                 <h1 class="about-title">About Me</h1>
-                <p class="about-subtitle">IT Undergraduate, Innovator & Developer</p>
+                <p class="about-subtitle" data-profile="aboutSubtitle">IT Undergraduate, Innovator & Developer</p>
             </div>
 
             <!-- About Content Grid -->
             <div class="about-grid">
                 <div class="about-text">
-                    <p>
-                        I am an Information Technology undergraduate at the Sri Lanka Institute of Information Technology (SLIIT), pursuing a BSc (Hons) in Information Technology, specializing in Software Engineering.
-                    </p>
-                    <p>
-                        I am passionate about turning ideas into functional, user-friendly digital solutions. I have hands-on experience in web and mobile development, utilizing the MERN stack, PHP, and Kotlin to build efficient applications.
-                    </p>
-                    <p>
-                        Join me as I explore how technology solves problems and improves lives. Let's build something great together!
-                    </p>
+                    <p data-profile="aboutParagraph1"></p>
+                    <p data-profile="aboutParagraph2"></p>
+                    <p data-profile="aboutParagraph3"></p>
                 </div>
 
                 <div class="about-image">
                     <div class="profile-card">
                         <div class="profile-avatar">
-                            <img src="Images/My Profile.jpg">
+                            <img src="Images/My Profile.jpg" data-profile-img="profileImage">
                         </div>
-                        <h3 class="profile-name">Pasindu S Divyanjana</h3>
-                        <p class="profile-role">Undergraduate</p>
+                        <h3 class="profile-name" data-profile="name">Pasindu S Divyanjana</h3>
+                        <p class="profile-role" data-profile="title">Undergraduate</p>
                     </div>
                 </div>
             </div>
@@ -87,7 +63,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
-                        <div class="stat-number" data-count="2">2</div>
+                        <div class="stat-number" data-stat="yearsOfStudy" data-count="2">2</div>
                         <div class="stat-info">
                             <p>Years of Study</p>
                         </div>
@@ -97,7 +73,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-project-diagram"></i>
                         </div>
-                        <div class="stat-number" data-count="5">5</div>
+                        <div class="stat-number" data-stat="projectsCompleted" data-count="5">5</div>
                         <div class="stat-info">
                             <p>Projects Completed</p>
                         </div>
@@ -107,7 +83,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-award"></i>
                         </div>
-                        <div class="stat-number" data-count="5">5</div>
+                        <div class="stat-number" data-stat="certifications" data-count="5">5</div>
                         <div class="stat-info">
                             <p>Certifications</p>
                         </div>
@@ -117,7 +93,7 @@
                         <div class="stat-icon">
                             <i class="fas fa-code"></i>
                         </div>
-                        <div class="stat-number" data-count="10">10</div>
+                        <div class="stat-number" data-stat="technologies" data-count="10">10</div>
                         <div class="stat-info">
                             <p>Technologies</p>
                         </div>
@@ -205,26 +181,19 @@
             <div class="social-section">
                 <h2 class="section-title">Connect With Me</h2>
                 <div class="social-media">
-                    <a href="https://www.linkedin.com/in/pasindu-s-divyanjana/" target="_blank" class="social-link" title="LinkedIn">
-                        <i class="bx bxl-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/PasinduSDivyanjana" target="_blank" class="social-link" title="GitHub">
-                        <i class="bx bxl-github"></i>
-                    </a>
-                    <a href="mailto:pasindushehan0927@gmail.com" target="_blank" class="social-link" title="Email">
-                        <i class="bx bx-envelope"></i>
-                    </a>
-                    <a href="https://www.facebook.com/pasindu.s.divyanjana" target="_blank" class="social-link" title="Facebook">
-                        <i class="bx bxl-facebook"></i>
-                    </a>
-                    <a href="https://www.instagram.com/pasindu__s__divyanjana?igsh=MTljZHdqb2hpbXRsNA==" target="_blank" class="social-link" title="Instagram">
-                        <i class="bx bxl-instagram"></i>
-                    </a>
+                    <a href="#" data-profile-href="linkedin" target="_blank" class="social-link" title="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+                    <a href="#" data-profile-href="github" target="_blank" class="social-link" title="GitHub"><i class="bx bxl-github"></i></a>
+                    <a href="#" data-profile-href="email" target="_blank" class="social-link" title="Email"><i class="bx bx-envelope"></i></a>
+                    <a href="#" data-profile-href="facebook" target="_blank" class="social-link" title="Facebook"><i class="bx bxl-facebook"></i></a>
+                    <a href="#" data-profile-href="instagram" target="_blank" class="social-link" title="Instagram"><i class="bx bxl-instagram"></i></a>
                 </div>
             </div>
         </div>
     </main>
 
-    <script src="About_Script.js"> </script>
+    <script src="data/personal-data.js"></script>
+    <script src="scripts/load-navigation.js"></script>
+    <script src="scripts/data-loader.js"></script>
+    <script src="About_Script.js"></script>
 </body>
 </html>

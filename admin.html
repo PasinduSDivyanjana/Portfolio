@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Personal Data | Portfolio Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e8e8e8;
+            padding: 2rem;
+        }
+        .admin-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        h1 {
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            color: #fff;
+        }
+        .subtitle {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .card h2 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #60a5fa;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group:last-child { margin-bottom: 0; }
+        label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(0,0,0,0.3);
+            color: #fff;
+            font-size: 1rem;
+        }
+        textarea { min-height: 80px; resize: vertical; }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 2px rgba(96,165,250,0.2);
+        }
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+        @media (min-width: 600px) {
+            .stats-row { grid-template-columns: repeat(4, 1fr); }
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59,130,246,0.4);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #e2e8f0;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+        }
+        .actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #10b981;
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #94a3b8;
+            text-decoration: none;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+        }
+        .back-link:hover { color: #60a5fa; }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back to Portfolio
+        </a>
+        <h1><i class="fas fa-user-edit"></i> Update Personal Data</h1>
+        <p class="subtitle">Edit your information below. Click "Download Updated Data" to save. Replace the file <code>data/personal-data.js</code> in your project.</p>
+
+        <form id="profileForm">
+            <div class="card">
+                <h2><i class="fas fa-id-card"></i> Basic Info</h2>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label>Title (e.g., Undergraduate, Developer)</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label>Title Variations (comma-separated, for typewriter effect)</label>
+                    <input type="text" id="titleVariations" placeholder="Undergraduate, Innovator, Developer">
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-envelope"></i> Contact</h2>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="email" required>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-image"></i> Profile</h2>
+                <div class="form-group">
+                    <label>Profile Image Path</label>
+                    <input type="text" id="profileImage" placeholder="Images/My Profile.jpg">
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-home"></i> Home Page Bio</h2>
+                <div class="form-group">
+                    <label>Short Bio (home page description)</label>
+                    <textarea id="shortBio" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-user"></i> About Page</h2>
+                <div class="form-group">
+                    <label>About Subtitle</label>
+                    <input type="text" id="aboutSubtitle">
+                </div>
+                <div class="form-group">
+                    <label>About Paragraph 1</label>
+                    <textarea id="aboutParagraph1" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>About Paragraph 2</label>
+                    <textarea id="aboutParagraph2" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>About Paragraph 3</label>
+                    <textarea id="aboutParagraph3" rows="3"></textarea>
+                </div>
+                <h2 style="margin-top: 1.5rem;"><i class="fas fa-chart-bar"></i> Stats</h2>
+                <div class="stats-row">
+                    <div class="form-group">
+                        <label>Years of Study</label>
+                        <input type="number" id="yearsOfStudy" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Projects Completed</label>
+                        <input type="number" id="projectsCompleted" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Certifications</label>
+                        <input type="number" id="certifications" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label>Technologies</label>
+                        <input type="number" id="technologies" min="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-share-alt"></i> Social Links</h2>
+                <div class="form-group">
+                    <label>LinkedIn URL</label>
+                    <input type="url" id="linkedin" placeholder="https://linkedin.com/in/...">
+                </div>
+                <div class="form-group">
+                    <label>GitHub URL</label>
+                    <input type="url" id="github" placeholder="https://github.com/...">
+                </div>
+                <div class="form-group">
+                    <label>Facebook URL</label>
+                    <input type="url" id="facebook" placeholder="https://facebook.com/...">
+                </div>
+                <div class="form-group">
+                    <label>Instagram URL</label>
+                    <input type="url" id="instagram" placeholder="https://instagram.com/...">
+                </div>
+            </div>
+
+            <div class="card">
+                <h2><i class="fas fa-copyright"></i> Footer</h2>
+                <div class="form-group">
+                    <label>Copyright Text</label>
+                    <input type="text" id="copyright" placeholder="© Your Name 2025">
+                </div>
+            </div>
+
+            <div class="actions">
+                <button type="button" class="btn btn-primary" id="downloadBtn">
+                    <i class="fas fa-download"></i> Download Updated Data
+                </button>
+                <button type="button" class="btn btn-secondary" id="previewBtn">
+                    <i class="fas fa-eye"></i> Preview Changes (Local)
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMsg">Saved!</span>
+    </div>
+
+    <script src="data/personal-data.js"></script>
+    <script>
+        // Populate form from PERSONAL_DATA
+        function loadData() {
+            if (typeof PERSONAL_DATA === 'undefined') return;
+            const d = PERSONAL_DATA;
+            document.getElementById('name').value = d.name || '';
+            document.getElementById('title').value = d.title || '';
+            document.getElementById('titleVariations').value = (d.titleVariations || []).join(', ');
+            document.getElementById('email').value = d.email || '';
+            document.getElementById('profileImage').value = d.profileImage || '';
+            document.getElementById('shortBio').value = d.shortBio || '';
+            document.getElementById('aboutSubtitle').value = d.aboutSubtitle || '';
+            document.getElementById('aboutParagraph1').value = d.aboutParagraph1 || '';
+            document.getElementById('aboutParagraph2').value = d.aboutParagraph2 || '';
+            document.getElementById('aboutParagraph3').value = d.aboutParagraph3 || '';
+            if (d.stats) {
+                document.getElementById('yearsOfStudy').value = d.stats.yearsOfStudy ?? '';
+                document.getElementById('projectsCompleted').value = d.stats.projectsCompleted ?? '';
+                document.getElementById('certifications').value = d.stats.certifications ?? '';
+                document.getElementById('technologies').value = d.stats.technologies ?? '';
+            }
+            if (d.social) {
+                document.getElementById('linkedin').value = d.social.linkedin || '';
+                document.getElementById('github').value = d.social.github || '';
+                document.getElementById('facebook').value = d.social.facebook || '';
+                document.getElementById('instagram').value = d.social.instagram || '';
+            }
+            document.getElementById('copyright').value = d.copyright || '';
+        }
+
+        function getFormData() {
+            const titleVariations = document.getElementById('titleVariations').value
+                .split(',').map(s => s.trim()).filter(Boolean);
+            return {
+                name: document.getElementById('name').value,
+                title: document.getElementById('title').value,
+                titleVariations: titleVariations.length ? titleVariations : ['Undergraduate'],
+                email: document.getElementById('email').value,
+                profileImage: document.getElementById('profileImage').value || 'Images/My Profile.jpg',
+                profileImageAlt: document.getElementById('name').value,
+                shortBio: document.getElementById('shortBio').value,
+                aboutSubtitle: document.getElementById('aboutSubtitle').value,
+                aboutParagraph1: document.getElementById('aboutParagraph1').value,
+                aboutParagraph2: document.getElementById('aboutParagraph2').value,
+                aboutParagraph3: document.getElementById('aboutParagraph3').value,
+                stats: {
+                    yearsOfStudy: parseInt(document.getElementById('yearsOfStudy').value) || 0,
+                    projectsCompleted: parseInt(document.getElementById('projectsCompleted').value) || 0,
+                    certifications: parseInt(document.getElementById('certifications').value) || 0,
+                    technologies: parseInt(document.getElementById('technologies').value) || 0
+                },
+                social: {
+                    linkedin: document.getElementById('linkedin').value || '',
+                    github: document.getElementById('github').value || '',
+                    facebook: document.getElementById('facebook').value || '',
+                    instagram: document.getElementById('instagram').value || ''
+                },
+                copyright: document.getElementById('copyright').value
+            };
+        }
+
+        function escapeJsString(str) {
+            return (str || '').replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\n/g, '\\n');
+        }
+
+        function generateJsFile(data) {
+            return `/**
+ * Central Personal Data - Update this file to change your info across all pages
+ * Or use admin.html to edit and download the updated file
+ */
+const PERSONAL_DATA = {
+    name: "${escapeJsString(data.name)}",
+    title: "${escapeJsString(data.title)}",
+    titleVariations: [${data.titleVariations.map(s => '"' + escapeJsString(s) + '"').join(', ')}],
+    email: "${escapeJsString(data.email)}",
+    profileImage: "${escapeJsString(data.profileImage)}",
+    profileImageAlt: "${escapeJsString(data.name)}",
+    shortBio: "${escapeJsString(data.shortBio)}",
+    aboutSubtitle: "${escapeJsString(data.aboutSubtitle)}",
+    aboutParagraph1: "${escapeJsString(data.aboutParagraph1)}",
+    aboutParagraph2: "${escapeJsString(data.aboutParagraph2)}",
+    aboutParagraph3: "${escapeJsString(data.aboutParagraph3)}",
+    stats: {
+        yearsOfStudy: ${data.stats.yearsOfStudy},
+        projectsCompleted: ${data.stats.projectsCompleted},
+        certifications: ${data.stats.certifications},
+        technologies: ${data.stats.technologies}
+    },
+    social: {
+        linkedin: "${escapeJsString(data.social.linkedin)}",
+        github: "${escapeJsString(data.social.github)}",
+        facebook: "${escapeJsString(data.social.facebook)}",
+        instagram: "${escapeJsString(data.social.instagram)}"
+    },
+    copyright: "${escapeJsString(data.copyright)}"
+};
+`;
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+        }
+
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const data = getFormData();
+            const content = generateJsFile(data);
+            const blob = new Blob([content], { type: 'application/javascript' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'personal-data.js';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('File downloaded! Replace data/personal-data.js in your project.');
+        });
+
+        document.getElementById('previewBtn').addEventListener('click', () => {
+            const data = getFormData();
+            try {
+                localStorage.setItem('portfolio_preview_data', JSON.stringify(data));
+                showToast('Saved for preview. Open index.html to see changes.');
+                setTimeout(() => window.open('index.html', '_blank'), 500);
+            } catch (e) {
+                showToast('Preview save failed. Use Download instead.');
+            }
+        });
+
+        loadData();
+    </script>
+</body>
+</html>

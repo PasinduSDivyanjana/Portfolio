@@ -7,17 +7,20 @@ window.addEventListener('scroll', () => {
     scrollProgress.style.width = scrollPercent + '%';
 });
 
-// Contact card functions
+// Contact card functions (use PERSONAL_DATA from data-loader)
 function openEmail() {
-    window.open('mailto:pasindushehan0927@gmail.com', '_blank');
+    const email = (window.PERSONAL_DATA && window.PERSONAL_DATA.email) || 'pasindushehan0927@gmail.com';
+    window.open('mailto:' + email, '_blank');
 }
 
 function openLinkedIn() {
-    window.open('https://www.linkedin.com/in/pasindu-s-divyanjana/', '_blank');
+    const url = (window.PERSONAL_DATA && window.PERSONAL_DATA.social && window.PERSONAL_DATA.social.linkedin) || 'https://www.linkedin.com/in/pasindu-s-divyanjana/';
+    window.open(url, '_blank');
 }
 
 function openGitHub() {
-    window.open('https://github.com/PasinduSDivyanjana', '_blank');
+    const url = (window.PERSONAL_DATA && window.PERSONAL_DATA.social && window.PERSONAL_DATA.social.github) || 'https://github.com/PasinduSDivyanjana';
+    window.open(url, '_blank');
 }
 
 function copyPhone() {
@@ -37,7 +40,8 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
     const subject = `Message from ${name}`;
     const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
     
-    window.open(`mailto:pasindushehan0927@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
+    const email = (window.PERSONAL_DATA && window.PERSONAL_DATA.email) || 'pasindushehan0927@gmail.com';
+    window.open(`mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, '_blank');
 });
 
 // Add mobile menu toggle functionality

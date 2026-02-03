@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-page-suffix="Portfolio">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,25 +26,8 @@
     <!-- Navigation Overlay -->
     <div class="nav-overlay" id="navOverlay"></div>
 
-    <!-- Enhanced Navigation -->
-    <nav id="navbar">
-        <div class="nav-header">
-            <div class="nav-logo">Pasindu S Divyanjana</div>
-            <div class="nav-subtitle">Undergraduate</div>
-        </div>
-        <ul>
-            <li><a href="index.html" class="active"><i class="fas fa-home"></i> <span>Home</span></a></li>
-            <li><a href="About_Me.html"><i class="fas fa-user"></i> <span>About</span></a></li>
-            <li><a href="Experience.html"><i class="fas fa-layer-group"></i> <span>Experiences</span></a></li>
-            <li><a href="Education.html"><i class="fa-solid fa-graduation-cap"></i> <span>Education</span></a></li>
-            <li><a href="Project.html"><i class="fas fa-project-diagram"></i> <span>Projects</span></a></li>
-            <li><a href="Certificates.html"><i class="fa-solid fa-award"></i> <span>Certificates & Achievements</span></a></li>
-            <li><a href="Contact_Me.html"><i class="fas fa-envelope"></i> <span>Contact Me</span></a></li>
-        </ul>
-        <div class="nav-footer">
-                <!-- <div class="nav-logo-footer">Designed by,</div> -->
-            <div class="nav-subtitle-footer">© Pasindu S Divyanjana 2025</div>
-    </nav>
+    <!-- Navigation (loaded from components/navigation.html) -->
+    <div id="nav-container"></div>
 
     <!-- Main Content -->
     <main>
@@ -60,10 +43,10 @@
                 <div class="home-content">
                     <div class="text-animation">
                         <h3>Hello, I'm</h3>
-                        <h1>Pasindu S Divyanjana</h1>
-                        <h3>And I'm an <span class="multiple-text" id="typewriter">Undergraduate</span></h3>
+                        <h1 data-profile="name">Pasindu S Divyanjana</h1>
+                        <h3>And I'm an <span class="multiple-text" id="typewriter" data-profile="title">Undergraduate</span></h3>
                     </div>
-                    <p class="home-description">
+                    <p class="home-description" data-profile="shortBio">
                         Motivated and dedicated Information Technology undergraduate specializing in Software Engineering at SLIIT. Currently working as IT Consultant & Web Developer at Jet Shipping & Logistic Sdn. Bhd. Passionate about creating efficient, user-centered digital solutions using MERN stack, PHP, and Kotlin.
                     </p>
                     <div class="btn-group">
@@ -75,26 +58,16 @@
                         </a>
                     </div>
                     <div class="social-media">
-                        <a href="https://www.linkedin.com/in/pasindu-s-divyanjana/" target="_blank">
-                            <i class="bx bxl-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/PasinduSDivyanjana" target="_blank">
-                            <i class="bx bxl-github"></i>
-                        </a>
-                        <a href="mailto:pasindushehan0927@gmail.com" target="_blank">
-                            <i class="bx bx-envelope"></i>
-                        </a>
-                        <a href="https://www.facebook.com/pasindu.s.divyanjana" target="_blank">
-                            <i class="bx bxl-facebook"></i>
-                        </a>
-                        <a href="https://www.instagram.com/pasindu__s__divyanjana?igsh=MTljZHdqb2hpbXRsNA==" target="_blank">
-                            <i class="bx bxl-instagram"></i>
-                        </a>
+                        <a href="#" data-profile-href="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                        <a href="#" data-profile-href="github" target="_blank"><i class="bx bxl-github"></i></a>
+                        <a href="#" data-profile-href="email" target="_blank"><i class="bx bx-envelope"></i></a>
+                        <a href="#" data-profile-href="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+                        <a href="#" data-profile-href="instagram" target="_blank"><i class="bx bxl-instagram"></i></a>
                     </div>
                 </div>
                 <div class="home-img">
                     <div class="img-container">
-                        <img src="Images/My Profile.jpg" alt="Pasindu S Divyanjana" />
+                        <img src="Images/My Profile.jpg" alt="Pasindu S Divyanjana" data-profile-img="profileImage" />
                         <div class="img-overlay"></div>
                     </div>
                 </div>
@@ -102,6 +75,9 @@
         </section>
     </main>
 
+    <script src="data/personal-data.js"></script>
+    <script src="scripts/load-navigation.js"></script>
+    <script src="scripts/data-loader.js"></script>
     <script src="Index_Script.js"></script>
 </body>
 </html>
