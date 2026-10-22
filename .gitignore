@@ -2,3 +2,5 @@ node_modules/
 dist/
 *.log
 coverage/
+.local-backups/
+output/qa/

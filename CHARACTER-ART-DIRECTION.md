@@ -1,8 +1,8 @@
 # Personal portrait asset
 
-Generated with the built-in ImageGen tool using the existing `Images/My Profile.jpg` as an identity reference.
+Generated with the built-in ImageGen tool using `public/Images/My Profile.jpg` as an identity reference.
 
-- Generated source: `public/Images/character.png`
+- Generated source: `output/source/character.png`
 - Optimized transparent website asset: `public/Images/character.webp`
 - Usage: personal hero composition with pointer parallax. This is a raster portrait, not a rigged 3D model.
 - The source file was preserved; the WebP delivery copy was optimized for browser loading.

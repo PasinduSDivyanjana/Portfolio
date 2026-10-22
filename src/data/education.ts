@@ -1,6 +1,6 @@
 import type { School } from '../types/portfolio';
 
-// Restored personal records; retain dates and grades from Education.html.
+// Owner-provided academic records; retain the original dates and grades.
 export const degree = {
   title: 'BSc (Hons) in Information Technology',
   specialization: 'Specializing in Software Engineering',
