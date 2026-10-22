@@ -11,6 +11,7 @@ interface Props {
   decoration?: ReactNode;
   className?: string;
   artwork?: SceneKind;
+  centerOnMobile?: boolean;
 }
 export function SectionHeading({
   number,
@@ -21,9 +22,16 @@ export function SectionHeading({
   decoration,
   className = 'section-heading',
   artwork,
+  centerOnMobile = false,
 }: Props) {
   return (
-    <div className={className} data-reveal>
+    <div
+      className={
+        className +
+        (artwork ? ' section-heading-artwork' : centerOnMobile ? ' section-heading-centered' : '')
+      }
+      data-reveal
+    >
       <div>
         <SectionLabel number={number}>{label}</SectionLabel>
         <h2 id={titleId}>{title}</h2>

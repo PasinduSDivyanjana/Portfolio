@@ -30,6 +30,7 @@
   margin-bottom: 23px;
 }
 .skill-tabs button {
+  min-height: 44px;
   font-size: var(--text-small);
   color: #d5c0e7;
   padding: 0 0 16px;
@@ -51,6 +52,10 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 11px;
+}
+.skill > span:last-child {
+  min-width: 0;
+  overflow-wrap: normal;
 }
 .skill-symbol {
   font: 500 0.9375rem Manrope;
@@ -87,4 +92,15 @@
   line-height: 1.8;
   color: #bda6d2;
   margin-top: 20px;
+}
+@media (min-width: 701px) and (max-width: 950px) {
+  .toolkit-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .toolkit-orb {
+    width: 100%;
+    max-width: 420px;
+    margin: auto;
+  }
 }

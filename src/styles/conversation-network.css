@@ -43,12 +43,48 @@
   background: #382944;
 }
 @media (max-width: 700px) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact > .section-label {
+    order: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 18px;
+    letter-spacing: 0.075em;
+  }
+  .contact > h2 {
+    order: 1;
+    width: 100%;
+    font-size: clamp(2rem, 8.4vw, 2.4375rem);
+    line-height: 1.17;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
+  }
+  .contact > p {
+    order: 3;
+    max-width: 32ch;
+    margin: 16px 0 28px;
+    line-height: 1.7;
+    text-wrap: pretty;
+  }
+  .contact > .contact-button {
+    order: 4;
+  }
+  .contact > .copy-email {
+    order: 5;
+  }
   .conversation-network {
-    margin-bottom: 30px;
+    order: 2;
+    width: 100%;
+    margin: 22px auto 0;
   }
   .conversation-network .contact-artwork {
-    width: 100%;
-    height: 260px;
+    width: min(100%, 240px);
+    height: 208px;
   }
   .conversation-channels {
     gap: 6px;

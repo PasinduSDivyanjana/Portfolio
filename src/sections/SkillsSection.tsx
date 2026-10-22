@@ -1,6 +1,5 @@
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { useState, type KeyboardEvent } from 'react';
-import { ArrowUpRight } from 'lucide-react';
 import { SectionArtwork } from '../components/ui/SectionArtwork';
 import { skillGroups, type SkillTab } from '../data/skills';
 import { TechnologyLogo } from '../components/ui/TechnologyLogo';
@@ -22,6 +21,7 @@ export function SkillsSection() {
   return (
     <section className="skills section-shell" id="skills">
       <SectionHeading
+        centerOnMobile
         number="03"
         label="TOOLS OF THE TRADE"
         title={
@@ -77,7 +77,6 @@ export function SkillsSection() {
                   <TechnologyLogo name={skill} />
                 </span>
                 <span>{skill}</span>
-                <ArrowUpRight size={14} />
               </div>
             ))}
           </div>

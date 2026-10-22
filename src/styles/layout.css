@@ -76,20 +76,27 @@
   min-height: 44px;
 }
 .site-footer {
-  padding: 32px 5% 115px;
+  padding: 32px 8% 115px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--line);
-  gap: 20px;
+  gap: 24px;
   flex-wrap: wrap;
+  background: radial-gradient(ellipse at 50% 0, #b998ec09, transparent 70%);
+}
+.footer-identity {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
 }
 .footer-name {
   display: flex;
   align-items: center;
   gap: 12px;
-  font: 700 1.625rem Manrope;
-  letter-spacing: -1.5px;
+  font-family: Manrope, sans-serif;
+  font-weight: 650;
+  line-height: 1.4;
   min-width: 0;
 }
 .footer-name .brand-mark {
@@ -101,25 +108,39 @@
   letter-spacing: -0.5px;
   overflow-wrap: anywhere;
 }
-.site-footer > span {
+.footer-copyright,
+.footer-note {
   font-size: var(--text-caption);
-  color: #baaac7;
+  color: #b7aac4;
 }
-.site-footer > span:nth-child(3) {
-  font-size: var(--text-caption);
+.footer-note {
+  padding-left: 52px;
   letter-spacing: 1.1px;
 }
-.site-footer > span:nth-child(3) > span {
+.footer-note > span {
   color: var(--peach);
   margin-left: 8px;
 }
-.site-footer > a:last-child {
+.footer-top {
   font-size: var(--text-small);
-  letter-spacing: 1px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 12px;
-  color: #a48eb2;
+  color: #ded2e8;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #b998ec38;
+  border-radius: 999px;
+  background: #b998ec09;
+  transition:
+    color 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+.footer-top:hover {
+  color: #fff;
+  border-color: #b998ec80;
+  background: #b998ec18;
 }
 .floating-dock {
   position: fixed;

@@ -54,12 +54,14 @@ export function HeroSection() {
           Explore my work <ArrowUpRight size={18} />
         </a>
       </div>
-      <span className="floating-note note-one">
-        <Code2 size={15} /> BUILT WITH PURPOSE
-      </span>
-      <span className="floating-note note-two">
-        <Sparkles size={14} /> A LITTLE DIFFERENT.
-      </span>
+      <div className="hero-highlights">
+        <span className="floating-note note-one">
+          <Code2 size={15} /> BUILT WITH PURPOSE
+        </span>
+        <span className="floating-note note-two">
+          <Sparkles size={14} /> A LITTLE DIFFERENT.
+        </span>
+      </div>
       <div className="hero-footer">
         <a className="scroll-link" href="#about">
           <span>

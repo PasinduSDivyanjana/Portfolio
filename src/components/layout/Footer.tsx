@@ -1,21 +1,23 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { BrandMark } from '../ui/BrandMark';
 import { profile } from '../../data/profile';
 export function Footer() {
   return (
     <footer className="site-footer">
-      <a className="footer-name" href="#home" aria-label="Pasindu home">
-        <BrandMark />
-        <span className="footer-wordmark">{profile.name}</span>
-      </a>
-      <span>
+      <div className="footer-identity">
+        <a className="footer-name" href="#home" aria-label="Pasindu home">
+          <BrandMark />
+          <span className="footer-wordmark">{profile.name}</span>
+        </a>
+        <span className="footer-note">
+          BUILT WITH INTENTION <span aria-hidden="true">✳</span>
+        </span>
+      </div>
+      <span className="footer-copyright">
         © {new Date().getFullYear()} {profile.name}
       </span>
-      <span>
-        BUILT WITH INTENTION <span>✳</span>
-      </span>
-      <a href="#home">
-        BACK TO TOP <ArrowUpRight size={15} />
+      <a className="footer-top" href="#home">
+        Back to top <ArrowUp size={16} aria-hidden="true" />
       </a>
     </footer>
   );

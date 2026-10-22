@@ -52,4 +52,19 @@ describe('keyboard and menu navigation', () => {
     await user.keyboard('{Home}');
     expect(screen.getByRole('tabpanel')).toHaveTextContent('React');
   });
+  it('dismisses the menu with Escape and the header home or contact links', async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+    await user.click(screen.getByRole('button', { name: 'Open menu' }));
+    await user.keyboard('{Escape}');
+    expect(screen.getByRole('button', { name: 'Open menu' })).toHaveFocus();
+    for (const name of ['Let’s talk', 'Pasindu home']) {
+      await user.click(screen.getByRole('button', { name: 'Open menu' }));
+      await user.click(screen.getByRole('link', { name }));
+      expect(screen.getByRole('button', { name: 'Open menu' })).toHaveAttribute(
+        'aria-expanded',
+        'false',
+      );
+    }
+  });
 });

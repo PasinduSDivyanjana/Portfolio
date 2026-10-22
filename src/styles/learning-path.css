@@ -278,7 +278,7 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  min-height: 40px;
+  min-height: 44px;
   color: #dac4ec;
   font-size: var(--text-small);
 }
