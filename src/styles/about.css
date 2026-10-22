@@ -1,0 +1,98 @@
+.about {
+  position: relative;
+}
+.about-heading {
+  margin-bottom: 65px;
+}
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13%;
+  align-items: center;
+}
+.portrait-block {
+  position: relative;
+  max-width: 450px;
+  transform: rotate(-3deg);
+}
+.portrait-frame {
+  padding: 10px;
+  border: 1px solid #45374c;
+  background: #1c1423;
+  position: relative;
+}
+.portrait-frame img {
+  display: block;
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  object-position: 50% 35%;
+  filter: saturate(0.65);
+}
+.portrait-block:before {
+  content: '';
+  position: absolute;
+  inset: 12px -15px -12px 15px;
+  background: #23192c;
+  border: 1px solid #ffffff0c;
+  transform: rotate(6deg);
+}
+.portrait-orbit {
+  position: absolute;
+  top: -25px;
+  right: -35px;
+  font-size: 100px;
+  line-height: 1;
+  color: var(--peach);
+}
+.portrait-label {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7px;
+  letter-spacing: 1px;
+  margin: 18px 3px;
+  color: #a399ad;
+}
+.about-story h3 {
+  font: 500 33px/1.3 Manrope;
+  letter-spacing: -1.4px;
+  margin: 16px 0 25px;
+}
+.about-story p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #a69bad;
+  margin-bottom: 18px;
+  max-width: 450px;
+}
+.about-footnote {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 35px;
+  font-size: 10px;
+  color: #918399;
+}
+.type-ribbon {
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 29px 0;
+  margin: 15px 0;
+  background: #100d15;
+}
+.type-ribbon > div {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: max-content;
+  font: 500 27px Manrope;
+  letter-spacing: -1px;
+  color: #74687f;
+  animation: marquee 65s linear infinite;
+}
+.type-ribbon span {
+  color: #b99ccb;
+  font-size: 24px;
+}

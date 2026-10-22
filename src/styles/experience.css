@@ -1,0 +1,81 @@
+.journey-asterisk {
+  font-size: 85px;
+  font-weight: 300;
+  color: var(--peach);
+  line-height: 1;
+}
+.timeline {
+  position: relative;
+}
+.timeline:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 6px;
+  width: 1px;
+  background: linear-gradient(var(--accent), #b998ec10);
+}
+.timeline-item {
+  padding: 0 0 0 45px;
+  position: relative;
+}
+.timeline-dot {
+  position: absolute;
+  left: 3px;
+  top: 36px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #53425f;
+  border: 1px solid #aa8ac1;
+  transition: box-shadow 0.3s;
+}
+.timeline-item > button {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+.timeline-tag {
+  width: 21%;
+  font-size: 8px;
+  letter-spacing: 1.4px;
+  color: #9a81ac;
+}
+.timeline-title {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.timeline-title > strong {
+  font: 500 20px Manrope;
+  letter-spacing: -0.5px;
+}
+.timeline-title > span {
+  font-size: 11px;
+  color: #93859d;
+  line-height: 1.7;
+}
+.timeline-toggle {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #6b527e60;
+  border-radius: 50%;
+  color: #b79acb;
+}
+.timeline-item > div {
+  padding: 20px 50px 27px calc(21% + 20px);
+}
+.timeline-item > div > p {
+  color: #998aa3;
+  font-size: 12px;
+  line-height: 1.9;
+  max-width: 600px;
+}

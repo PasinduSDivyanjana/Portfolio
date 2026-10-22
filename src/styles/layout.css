@@ -1,0 +1,143 @@
+.site-header {
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand-symbol {
+  font: 800 43px/1 Manrope;
+  letter-spacing: -5px;
+}
+.brand-symbol > span {
+  color: var(--accent);
+}
+.brand > span:last-child {
+  font-size: 9px;
+  letter-spacing: 1.8px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+.brand small {
+  font-size: 8px;
+  font-weight: 450;
+  letter-spacing: 1.5px;
+  color: #bcb4c2;
+}
+.top-nav {
+  display: flex;
+  gap: 36px;
+  font-size: 12px;
+  color: #bab4c2;
+}
+.top-nav a,
+.header-contact {
+  transition: color 0.2s;
+}
+.top-nav a:hover {
+  color: #fff;
+}
+.header-contact {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 11px;
+  border: 1px solid #ffffff35;
+  border-radius: 30px;
+  padding: 12px 18px;
+}
+.header-contact:hover {
+  color: var(--peach);
+  border-color: var(--peach);
+}
+.mobile-menu {
+  display: none;
+}
+.site-footer {
+  padding: 32px 5% 115px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  gap: 20px;
+}
+.footer-name {
+  font: 700 26px Manrope;
+  letter-spacing: -1.5px;
+}
+.footer-name > span {
+  color: var(--peach);
+}
+.site-footer > span {
+  font-size: 8px;
+  color: #887690;
+}
+.site-footer > span:nth-child(3) {
+  font-size: 7px;
+  letter-spacing: 1.1px;
+}
+.site-footer > span:nth-child(3) > span {
+  color: var(--peach);
+  margin-left: 8px;
+}
+.site-footer > a:last-child {
+  font-size: 7px;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #a48eb2;
+}
+.floating-dock {
+  position: fixed;
+  bottom: 23px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 3px;
+  padding: 6px;
+  border: 1px solid #b995d333;
+  border-radius: 50px;
+  background: #241b2cbb;
+  backdrop-filter: blur(22px);
+  box-shadow: 0 10px 40px #0008;
+  z-index: 20;
+}
+.floating-dock > a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 18px;
+  border-radius: 30px;
+  color: #b9aac4;
+  font-size: 10px;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.floating-dock > a:hover {
+  color: #fff;
+  background: #7f5b9c22;
+}
+.floating-dock > a.active {
+  background: #eae0ef;
+  color: #2b2032;
+}
+.top-nav {
+  gap: 25px;
+}
+.floating-dock > a {
+  padding-left: 14px;
+  padding-right: 14px;
+}

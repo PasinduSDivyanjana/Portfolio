@@ -1,0 +1,105 @@
+.micro-label {
+  font-size: 8px;
+  letter-spacing: 1.6px;
+  color: #a99ab6;
+  text-transform: uppercase;
+}
+.inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  font-size: 11px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #695476;
+  margin-top: 12px;
+}
+.inline-link:hover {
+  color: var(--peach);
+}
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 21px 0 28px;
+}
+.tech-tags > span {
+  font-size: 8px;
+  border: 1px solid #7e628138;
+  padding: 6px 10px;
+  border-radius: 20px;
+  color: #b1a2be;
+}
+.contact-button {
+  display: inline-flex;
+  gap: 45px;
+  align-items: center;
+  justify-content: space-between;
+  background: #e9bb9d;
+  color: #241925;
+  border-radius: 40px;
+  padding: 17px 24px;
+  font-size: 12px;
+  font-weight: 500;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+  position: relative;
+}
+.contact-button:hover {
+  background: #f4ceb4;
+  transform: translateY(-3px);
+}
+.project-dialog {
+  border: 1px solid #6b4e7a80;
+  border-radius: 9px;
+  background: #18101f;
+  color: #eee6f4;
+  padding: 0;
+  width: min(750px, 92vw);
+  max-height: 90svh;
+  overscroll-behavior: contain;
+}
+.project-dialog::backdrop {
+  background: #050208dd;
+  backdrop-filter: blur(12px);
+}
+.project-dialog article {
+  position: relative;
+}
+.project-dialog article > img {
+  width: 100%;
+  max-height: 330px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+.dialog-close {
+  position: absolute;
+  right: 13px;
+  top: 13px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: #1c1129e8;
+  border: 1px solid #c5a3d647;
+  border-radius: 50%;
+  color: #f2e6fa;
+}
+.dialog-content {
+  padding: 35px;
+}
+.dialog-content h2 {
+  font-size: 39px;
+  margin: 15px 0 20px;
+}
+.dialog-content > p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #b3a1c1;
+}
+.contact-button.small {
+  font-size: 11px;
+  padding: 13px 20px;
+}
