@@ -9,6 +9,7 @@ export function SectionNavigation({ active }: { active: SectionId }) {
           href={'#' + id}
           key={id}
           aria-label={name}
+          title={name}
           aria-current={active === id ? 'location' : undefined}
         >
           <Icon size={16} strokeWidth={1.6} />

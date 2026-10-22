@@ -35,7 +35,7 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 22px;
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #e1ccee;
   margin-bottom: 17px;
 }
@@ -45,21 +45,26 @@
   gap: 7px;
 }
 .education-meta .education-status {
-  font-size: 11px;
+  font-size: var(--text-caption);
   color: #b6cfc5;
 }
 .degree-content h3 {
-  font: 500 25px/1.4 Manrope;
+  font: 500 1.5625rem/1.4 Manrope;
   letter-spacing: -0.8px;
 }
+.degree-content,
+.school-heading > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 .specialization {
-  font-size: 14px;
+  font-size: var(--text-small);
   line-height: 1.7;
   color: #d0b1e7;
   margin: 6px 0;
 }
 .institution-name {
-  font-size: 14px;
+  font-size: var(--text-small);
   line-height: 1.8;
   color: #d8c1e7;
 }
@@ -73,13 +78,13 @@
   color: #c3a3df;
 }
 .degree-gpa > span {
-  font-size: 11px;
+  font-size: var(--text-caption);
   letter-spacing: 1.4px;
   margin: 14px 0 6px;
   color: #ceb0e6;
 }
 .degree-gpa > strong {
-  font: 500 43px/1 Manrope;
+  font: 500 2.6875rem/1 Manrope;
   letter-spacing: -2px;
   color: #f0dfeb;
 }
@@ -107,16 +112,16 @@
   padding: 7px;
 }
 .school-heading .micro-label {
-  font-size: 11px;
+  font-size: var(--text-caption);
   letter-spacing: 1.2px;
 }
 .school-heading h3 {
-  font: 500 20px/1.4 Manrope;
+  font: 500 1.25rem/1.4 Manrope;
   letter-spacing: -0.5px;
   margin-top: 7px;
 }
 .school-heading p {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: #c4a8da;
   margin-top: 4px;
 }
@@ -147,20 +152,20 @@
 }
 .qualification-year {
   color: var(--peach);
-  font-size: 11px;
+  font-size: var(--text-caption);
   letter-spacing: 1px;
   display: block;
   margin-bottom: 8px;
 }
 .qualification h4,
 .scholarship-record h4 {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.7;
 }
 .qualification-stream {
   display: block;
-  font-size: 14px;
+  font-size: var(--text-small);
   color: #ccb0e2;
   margin-top: 5px;
   line-height: 1.7;
@@ -184,12 +189,12 @@
   border-bottom: 0;
 }
 .exam-results dt {
-  font-size: 14px;
+  font-size: var(--text-small);
   line-height: 1.7;
   color: #ded0e8;
 }
 .exam-results dd {
-  font-size: 14px;
+  font-size: var(--text-small);
   color: #d6bde7;
   margin: 0;
   min-width: 21px;
@@ -219,12 +224,12 @@
   border-left: 1px solid #ffffff12;
 }
 .scholarship-score span {
-  font-size: 11px;
+  font-size: var(--text-caption);
   letter-spacing: 1.4px;
   color: #d6b9eb;
 }
 .scholarship-score strong {
-  font: 500 36px/1 Manrope;
+  font: 500 2.25rem/1 Manrope;
   letter-spacing: -1px;
   color: #ead9f1;
 }
@@ -235,7 +240,7 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 14px;
+  font-size: var(--text-body);
   color: #96c2b1;
   line-height: 1.8;
 }

@@ -2,7 +2,7 @@
   .hero-title {
     left: 8%;
     right: 8%;
-    font-size: 175px;
+    font-size: 10.9375rem;
   }
   .hero {
     height: 1000px;
@@ -25,7 +25,7 @@
     min-height: 780px;
   }
   .hero-title {
-    font-size: 10.8vw;
+    font-size: clamp(3rem, calc(2rem + 7vw), 7.5rem);
     top: 35%;
   }
   .hero-side-copy {
@@ -33,7 +33,7 @@
     max-width: 170px;
   }
   .hero-side-copy p {
-    font-size: 11px;
+    font-size: var(--text-small);
   }
   .character-wrap {
     width: 52%;
@@ -56,13 +56,13 @@
     height: 370px;
   }
   .portrait-orbit {
-    font-size: 80px;
+    font-size: 5rem;
   }
   .about-story h3 {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
   .about-story p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .feature {
     grid-template-columns: 0.85fr 1.15fr;
@@ -75,7 +75,7 @@
     min-height: 490px;
   }
   .feature-copy h3 {
-    font-size: 32px;
+    font-size: 2rem;
   }
   .archive-project > div:last-child {
     align-items: flex-start;
@@ -86,7 +86,7 @@
     gap: 6%;
   }
   .timeline-title > strong {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 }
 @media (max-width: 700px) {
@@ -99,13 +99,15 @@
     height: 40px;
   }
   .brand-wordmark {
-    font-size: 7px;
+    font-size: var(--text-small);
+    letter-spacing: 1px;
   }
   .brand small {
-    font-size: 6px;
+    font-size: var(--text-caption);
+    letter-spacing: 0.8px;
   }
   .header-contact {
-    font-size: 9px;
+    font-size: var(--text-small);
     gap: 15px;
     padding: 10px 14px;
     margin-left: auto;
@@ -115,6 +117,8 @@
     display: grid;
     place-items: center;
     padding: 5px;
+    min-width: 44px;
+    min-height: 44px;
   }
   .mobile-menu svg {
     width: 21px;
@@ -136,17 +140,22 @@
     align-items: flex-start;
   }
   .hero {
-    height: 890px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    height: auto;
     min-height: 0;
     max-height: none;
-    padding: 104px 6% 0;
+    padding: 104px 6% 80px;
   }
   .hero-top {
-    font-size: 6px;
+    font-size: var(--text-caption);
     letter-spacing: 0.7px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
   .hero-location {
-    font-size: 5px;
+    font-size: var(--text-caption);
     gap: 5px;
   }
   .hello-tag {
@@ -157,19 +166,22 @@
     width: 4px;
   }
   .hero-intro {
-    left: 6%;
-    top: 153px;
-    font-size: 10px;
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 24px 0;
+    font-size: var(--text-small);
     gap: 10px;
   }
   .intro-line {
     width: 20px;
   }
   .hero-title {
-    top: 231px;
-    left: 6%;
-    right: 6%;
-    font-size: clamp(42px, 11.2vw, 77px);
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    font-size: clamp(2.625rem, 11.2vw, 4.8125rem);
     line-height: 1.2;
     letter-spacing: -0.065em;
   }
@@ -180,46 +192,54 @@
     align-self: center;
   }
   .character-wrap {
-    width: 91%;
+    position: relative;
+    width: 100%;
     max-width: 480px;
-    height: 475px;
-    bottom: 103px;
+    height: clamp(360px, 105vw, 475px);
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: -40px auto 0;
     z-index: 2;
   }
   .hero-character {
     mask-image: linear-gradient(#000 73%, transparent 98%);
   }
   .character-caption {
-    bottom: 10%;
-    font-size: 9px;
+    bottom: 3%;
+    font-size: var(--text-caption);
     padding: 9px 13px;
   }
   .character-caption > span {
-    font-size: 6px;
+    font-size: var(--text-caption);
   }
   .hero-side-copy {
+    position: relative;
     top: auto;
-    bottom: 85px;
-    left: 6%;
-    right: 6%;
+    bottom: auto;
+    left: auto;
+    right: auto;
     max-width: none;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 18px;
     justify-content: space-between;
+    margin-top: 24px;
   }
   .hero-side-copy > .small-cross {
     display: none;
   }
   .hero-side-copy p {
-    font-size: 9px;
+    font-size: var(--text-small);
     line-height: 1.7;
     margin: 0;
   }
   .hero-side-copy > a {
     gap: 14px;
-    font-size: 10px;
+    font-size: var(--text-small);
     padding-bottom: 7px;
+    min-height: 44px;
+    max-width: 50%;
   }
   .hero-side-copy p br:first-child {
     display: none;
@@ -228,10 +248,11 @@
     display: none;
   }
   .hero-side-copy p {
-    max-width: 150px;
+    max-width: 20ch;
+    flex: 1;
   }
   .floating-note {
-    font-size: 6px;
+    font-size: var(--text-caption);
     letter-spacing: 0.6px;
     padding: 9px 11px;
     gap: 7px;
@@ -240,24 +261,28 @@
     width: 11px;
   }
   .note-one {
-    top: 56%;
+    top: 51%;
     left: 3%;
     z-index: 3;
   }
   .note-two {
-    top: 22%;
-    right: 7%;
+    top: 59%;
+    right: 3%;
   }
   .hero-footer {
-    bottom: 23px;
-    left: 6%;
-    right: 6%;
+    position: relative;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    margin-top: 32px;
+    gap: 16px;
+    flex-wrap: wrap;
   }
   .hero-edition {
     display: none;
   }
   .scroll-link {
-    font-size: 6px;
+    font-size: var(--text-caption);
     letter-spacing: 1px;
     gap: 8px;
   }
@@ -278,13 +303,13 @@
     padding: 65px 6%;
   }
   .section-label {
-    font-size: 11px;
+    font-size: var(--text-caption);
     letter-spacing: 1.3px;
     gap: 13px;
     margin-bottom: 20px;
   }
   h2 {
-    font-size: 39px;
+    font-size: 2.4375rem;
     letter-spacing: -2px;
   }
   .about-heading {
@@ -305,16 +330,16 @@
   .portrait-orbit {
     right: -25px;
     top: -20px;
-    font-size: 75px;
+    font-size: 4.6875rem;
   }
   .portrait-label {
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .about-story h3 {
-    font-size: 29px;
+    font-size: 1.8125rem;
   }
   .about-story p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .about-footnote {
     margin-top: 26px;
@@ -324,18 +349,18 @@
     margin: 0;
   }
   .type-ribbon > div {
-    font-size: 21px;
+    font-size: 1.3125rem;
     gap: 20px;
   }
   .type-ribbon span {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .section-heading {
     display: block;
     margin-bottom: 37px;
   }
   .section-heading > p {
-    font-size: 14px;
+    font-size: var(--text-body);
     margin-top: 22px;
   }
   .feature {
@@ -347,18 +372,18 @@
   }
   .project-number {
     margin-bottom: 25px;
-    font-size: 22px;
+    font-size: 1.375rem;
   }
   .project-number > span {
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .feature-copy h3 {
-    font-size: 35px;
+    font-size: 2.1875rem;
     margin: 13px 0 18px;
   }
   .feature-copy p {
     max-width: none;
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .feature-copy .tech-tags {
     margin: 17px 0 23px;
@@ -376,12 +401,12 @@
     padding: 55px 25px;
   }
   .stage-label {
-    font-size: 11px;
+    font-size: var(--text-caption);
     top: 18px;
     left: 20px;
   }
   .stage-note {
-    font-size: 11px;
+    font-size: var(--text-caption);
     bottom: 18px;
     left: 20px;
     right: 20px;
@@ -396,10 +421,10 @@
     gap: 18px;
   }
   .archive-heading h3 {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .project-filters button {
-    font-size: 14px;
+    font-size: var(--text-small);
     padding: 8px 16px;
   }
   .archive-grid {
@@ -420,10 +445,10 @@
     width: 15px;
   }
   .archive-project h4 {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .archive-project > div:last-child > span {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.4;
   }
   .archive-project > div:last-child {
@@ -442,26 +467,26 @@
   }
   .orb-tag {
     bottom: 0;
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .skill-tabs {
     gap: 27px;
     margin-bottom: 20px;
   }
   .skill-tabs button {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   .skill {
-    font-size: 14px;
+    font-size: var(--text-body);
     padding: 14px 11px;
     gap: 9px;
   }
   .skill-symbol {
     width: 25px;
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .toolkit-note {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   .journey .section-heading {
     display: flex;
@@ -478,14 +503,14 @@
   }
   .timeline-tag {
     width: 100%;
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .timeline-title > strong {
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.5;
   }
   .timeline-title > span {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   .timeline-toggle {
     height: 28px;
@@ -495,7 +520,7 @@
     padding: 18px 20px 25px 0;
   }
   .timeline-item > div > p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .timeline-dot {
     top: 28px;
@@ -505,25 +530,25 @@
     padding-bottom: 70px;
   }
   .contact .section-label {
-    font-size: 11px;
+    font-size: var(--text-caption);
     letter-spacing: 0.8px;
     gap: 9px;
   }
   .contact h2 {
-    font-size: 42px;
+    font-size: 2.625rem;
     letter-spacing: -2.6px;
   }
   .contact > p {
-    font-size: 14px;
+    font-size: var(--text-body);
     margin-top: 22px;
   }
   .contact-button {
-    font-size: 14px;
+    font-size: var(--text-small);
     padding: 15px 22px;
     gap: 40px;
   }
   .copy-email {
-    font-size: 14px;
+    font-size: var(--text-small);
     gap: 9px;
     max-width: 100%;
   }
@@ -532,7 +557,7 @@
     margin-top: 35px;
   }
   .contact-links a {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   .site-footer {
     padding: 25px 6% 110px;
@@ -540,10 +565,10 @@
     gap: 18px;
   }
   .footer-name {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   .site-footer > span {
-    font-size: 7px;
+    font-size: var(--text-caption);
   }
   .site-footer > span:nth-child(3) {
     display: none;
@@ -551,18 +576,20 @@
   .site-footer > a:last-child {
     width: 100%;
     justify-content: flex-end;
-    font-size: 6px;
+    font-size: var(--text-small);
   }
   .floating-dock {
     bottom: 15px;
     padding: 5px;
     gap: 1px;
-    max-width: 94vw;
+    width: calc(100% - 24px);
+    max-width: 600px;
   }
   .floating-dock > a {
-    padding: 11px 13px;
-    font-size: 8px;
+    padding: 10px 6px;
+    font-size: var(--text-small);
     gap: 6px;
+    flex: 1;
   }
   .floating-dock > a svg {
     width: 14px;
@@ -571,7 +598,7 @@
 }
 @media (max-width: 360px) {
   .floating-dock > a {
-    padding: 10px 10px;
+    padding: 10px 6px;
   }
   .hero-location {
     display: none;
@@ -614,7 +641,7 @@
 @media (max-width: 1100px) {
   .top-nav {
     gap: 15px;
-    font-size: 10px;
+    font-size: var(--text-small);
   }
   .degree-card {
     grid-template-columns: 65px 1fr auto;
@@ -627,7 +654,7 @@
     padding: 8px;
   }
   .degree-content h3 {
-    font-size: 21px;
+    font-size: 1.3125rem;
   }
   .degree-gpa {
     min-width: 95px;
@@ -644,7 +671,7 @@
     gap: 14px;
   }
   .school-heading h3 {
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
   .achievement-copy {
     padding: 32px;
@@ -653,7 +680,7 @@
     min-height: 440px;
   }
   .certificate-description h4 {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }
 @media (max-width: 950px) {
@@ -672,7 +699,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    font-size: 12px;
+    font-size: var(--text-small);
   }
   .mobile-menu {
     display: grid;
@@ -701,10 +728,10 @@
   }
   .degree-gpa > span {
     margin: 0;
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .degree-gpa > strong {
-    font-size: 30px;
+    font-size: 1.875rem;
     margin-left: auto;
   }
   .achievement-feature {
@@ -714,10 +741,10 @@
     padding: 30px 25px;
   }
   .achievement-copy h3 {
-    font-size: 27px;
+    font-size: 1.6875rem;
   }
   .achievement-description {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
 }
 @media (max-width: 700px) {
@@ -729,7 +756,7 @@
   }
   .education .section-heading > p,
   .credentials .section-heading > p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .degree-card {
     padding: 23px 19px;
@@ -744,23 +771,23 @@
   }
   .education-meta {
     gap: 11px;
-    font-size: 14px;
+    font-size: 0.875rem;
     margin-bottom: 13px;
   }
   .education-status {
-    font-size: 11px !important;
+    font-size: var(--text-caption);
   }
   .degree-content h3 {
-    font-size: 19px;
+    font-size: 1.1875rem;
     line-height: 1.4;
     letter-spacing: -0.6px;
   }
   .specialization {
-    font-size: 14px;
+    font-size: var(--text-small);
     margin-top: 10px;
   }
   .institution-name {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   .degree-gpa {
     grid-column: 1/-1;
@@ -768,10 +795,10 @@
     margin-top: 2px;
   }
   .degree-gpa > span {
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .degree-gpa > strong {
-    font-size: 29px;
+    font-size: 1.8125rem;
   }
   .degree-gpa > svg {
     width: 19px;
@@ -780,10 +807,10 @@
     padding: 23px 20px;
   }
   .school-heading h3 {
-    font-size: 19px;
+    font-size: 1.1875rem;
   }
   .school-heading .micro-label {
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .school-heading .institution-logo {
     width: 50px;
@@ -791,19 +818,19 @@
   }
   .qualification h4,
   .scholarship-record h4 {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .qualification-stream {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   .exam-results > div {
     padding: 10px 12px;
   }
   .exam-results dt {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   .exam-results dd {
-    font-size: 14px;
+    font-size: var(--text-small);
   }
   .scholarship-score {
     max-width: 340px;
@@ -818,7 +845,7 @@
     object-position: center 48%;
   }
   .achievement-image-label {
-    font-size: 14px;
+    font-size: 0.875rem;
     letter-spacing: 1px;
     left: 20px;
     bottom: 20px;
@@ -827,22 +854,22 @@
     padding: 29px 23px;
   }
   .achievement-copy h3 {
-    font-size: 29px;
+    font-size: 1.8125rem;
     letter-spacing: -1px;
   }
   .achievement-category {
-    font-size: 14px;
+    font-size: 0.875rem;
     margin-bottom: 20px;
   }
   .achievement-recipient {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .achievement-description {
-    font-size: 14px;
+    font-size: var(--text-body);
     margin-top: 19px;
   }
   .achievement-date {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .certificate-list-heading {
     gap: 15px;
@@ -852,11 +879,11 @@
     gap: 10px;
   }
   .certificate-list-heading h3 {
-    font-size: 16px;
+    font-size: 1rem;
     max-width: 230px;
   }
   .certificate-list-heading > span {
-    font-size: 11px;
+    font-size: var(--text-caption);
     letter-spacing: 1px;
   }
   .certificate-list-heading svg {
@@ -879,28 +906,28 @@
     flex-basis: calc(100% - 53px);
   }
   .certificate-number {
-    font-size: 11px;
+    font-size: var(--text-caption);
     letter-spacing: 0.5px;
     line-height: 1.8;
   }
   .certificate-description h4 {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.6;
     margin-top: 5px;
   }
   .course-status {
-    font-size: 11px;
+    font-size: var(--text-caption);
     padding: 7px 10px;
     margin-left: 53px;
   }
   .floating-dock > a {
-    padding: 11px 12px;
+    padding: 10px 6px;
   }
   .floating-dock > a > span {
     display: none;
   }
   .floating-dock > a.active > span {
-    display: inline;
+    display: none;
   }
   .floating-dock > a > svg {
     width: 15px;
@@ -917,7 +944,7 @@
 }
 @media (max-width: 360px) {
   .floating-dock > a {
-    padding: 11px 9px;
+    padding: 10px 5px;
   }
   .floating-dock > a.active {
     gap: 5px;
@@ -926,6 +953,23 @@
     padding: 20px 16px;
   }
   .school-heading h3 {
-    font-size: 17px;
+    font-size: 1.0625rem;
+  }
+}
+@media (max-width: 380px) {
+  .header-contact {
+    display: none;
+  }
+  .mobile-menu {
+    margin-left: auto;
+  }
+  .skill-list,
+  .archive-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) {
+  .character-wrap {
+    translate: none;
   }
 }

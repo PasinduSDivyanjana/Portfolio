@@ -22,6 +22,8 @@ The application uses TypeScript in strict mode. `src/Portfolio.tsx` composes the
 
 The owner-selected connected PSD logo is traced as a transparent SVG in `public/branding/psd-connected.svg`. The header and footer use the shared `BrandMark` component, and the browser favicon references the same asset. The original approved concept remains in `output/branding/pasindu-psd-connected-logo-v2.png`.
 
+Typography uses shared `--text-body` (1rem), `--text-small` (0.875rem), and `--text-caption` (0.75rem) tokens in `base.css`. Reading text remains 1rem on mobile; text sizes use rem units so they follow browser font preferences. Small mock-browser chrome remains decorative. The mobile hero and device toolbars use normal document flow to accommodate larger text, narrow skill/project grids become single columns, and navigation moves to the menu before the larger text crowds the header. Live browser review covers mobile and desktop text, menus, skill tabs, project dialogs and credential previews. These checks do not constitute a full accessibility conformance audit.
+
 ## Source structure
 
 - `src/sections/`: hero, about, projects, skills, experience, education, certifications, and contact.

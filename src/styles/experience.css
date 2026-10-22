@@ -36,7 +36,7 @@
 }
 .timeline-tag {
   width: 21%;
-  font-size: 11px;
+  font-size: var(--text-caption);
   letter-spacing: 1.4px;
   color: #cfb1e6;
 }
@@ -47,11 +47,11 @@
   gap: 8px;
 }
 .timeline-title > strong {
-  font: 500 20px Manrope;
+  font: 500 1.25rem Manrope;
   letter-spacing: -0.5px;
 }
 .timeline-title > span {
-  font-size: 14px;
+  font-size: var(--text-small);
   color: #d0bedf;
   line-height: 1.7;
 }
@@ -69,7 +69,7 @@
 }
 .timeline-item > div > p {
   color: #d0bedf;
-  font-size: 14px;
+  font-size: var(--text-body);
   line-height: 1.9;
   max-width: 600px;
 }

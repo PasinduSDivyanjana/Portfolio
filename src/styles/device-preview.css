@@ -8,7 +8,7 @@
   padding: 5px 8px;
   border: 1px solid #ffffff30;
   border-radius: 20px;
-  font-size: 9px;
+  font-size: var(--text-caption);
   letter-spacing: 1px;
   color: #f3e5f6;
 }
@@ -106,7 +106,7 @@
 }
 .device-monogram {
   font:
-    600 55px Manrope,
+    600 3.4375rem Manrope,
     sans-serif;
   letter-spacing: -5px;
   color: #edf2ffb3;
@@ -119,7 +119,7 @@
   position: absolute;
   bottom: 24px;
   padding: 0 14px;
-  font-size: 8px;
+  font-size: var(--text-caption);
   letter-spacing: 1.6px;
   text-align: center;
   text-transform: uppercase;
@@ -240,14 +240,14 @@
   gap: 7px;
 }
 .rotation-hint {
-  font-size: 11px;
+  font-size: var(--text-caption);
 }
 .device-actions button {
-  min-height: 36px;
+  min-height: 44px;
   padding: 8px 10px;
   border: 1px solid #ffffff35;
   border-radius: 20px;
-  font-size: 11px;
+  font-size: var(--text-small);
   background: #15132055;
 }
 .device-actions button:hover {
@@ -265,7 +265,8 @@
 }
 @media (max-width: 700px) {
   .feature-stage {
-    padding: 55px 25px 65px;
+    padding: 55px 25px 20px;
+    row-gap: 16px;
   }
   .device-interaction {
     min-height: 240px;
@@ -289,26 +290,29 @@
     height: 52px;
   }
   .device-toolbar {
-    left: 16px;
-    right: 16px;
-    bottom: 15px;
+    position: relative;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
     gap: 6px;
+    flex-wrap: wrap;
   }
   .rotation-hint {
-    font-size: 10px;
+    font-size: var(--text-caption);
     gap: 5px;
   }
   .device-actions {
     gap: 5px;
   }
   .device-actions button {
-    min-height: 40px;
+    min-height: 44px;
     padding: 8px;
-    font-size: 10px;
+    font-size: var(--text-small);
     gap: 5px;
   }
   .rotation-badge {
-    right: 18px;
+    display: none;
   }
   .device-cameras {
     transform: scale(0.8);

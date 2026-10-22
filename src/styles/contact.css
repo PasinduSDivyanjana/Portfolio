@@ -15,10 +15,10 @@
 .contact .section-label {
   position: relative;
   justify-content: center;
-  font-size: 11px;
+  font-size: var(--text-caption);
 }
 .contact h2 {
-  font-size: clamp(45px, 6.3vw, 99px);
+  font-size: clamp(2.8125rem, 6.3vw, 6.1875rem);
   line-height: 1.12;
   position: relative;
 }
@@ -26,7 +26,7 @@
   color: var(--peach);
 }
 .contact > p {
-  font-size: 14px;
+  font-size: var(--text-body);
   line-height: 1.9;
   color: #d7c7e4;
   margin: 25px 0 31px;
@@ -37,7 +37,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
+  font-size: var(--text-small);
   color: #bda9cb;
   border-bottom: 1px solid #7c538655;
   padding: 10px 0;
@@ -57,7 +57,7 @@
   display: flex;
   gap: 10px;
   align-items: center;
-  font-size: 14px;
+  font-size: var(--text-small);
   color: #ddc5ed;
 }
 .contact-links a:hover {

@@ -44,7 +44,7 @@ main > .credentials {
 }
 .heading-aside > p {
   color: #ded0e9;
-  font-size: 15px;
+  font-size: var(--text-body);
   line-height: 1.85;
   text-align: center;
 }
@@ -85,7 +85,7 @@ main > .credentials {
   right: 0;
   text-align: center;
   color: #d2bce6;
-  font-size: 10px;
+  font-size: var(--text-caption);
   letter-spacing: 1.2px;
   z-index: 1;
 }
@@ -95,7 +95,7 @@ main > .credentials {
 }
 .about-story p {
   max-width: 490px;
-  font-size: 16px;
+  font-size: var(--text-body);
 }
 .portrait-frame {
   border-color: #bd98df65;
@@ -119,7 +119,7 @@ main > .credentials {
 }
 .feature-copy p {
   max-width: 350px;
-  font-size: 15px;
+  font-size: var(--text-body);
   line-height: 1.85;
 }
 .feature-stage {
@@ -144,10 +144,10 @@ main > .credentials {
   background-color: #3b2c48;
 }
 .archive-project h4 {
-  font-size: 17px;
+  font-size: 1.0625rem;
 }
 .archive-project > div:last-child > span {
-  font-size: 12px;
+  font-size: var(--text-caption);
 }
 .gold .archive-image {
   background: #3b3328;
@@ -184,7 +184,9 @@ main > .credentials {
   border-radius: 10px;
   border-color: #bd9eda45;
   padding: 21px 17px;
-  font-size: 16px;
+  font-size: var(--text-body);
+  min-width: 0;
+  overflow-wrap: anywhere;
   box-shadow: inset 0 1px 0 #ffffff08;
   transition:
     border-color 0.25s,
@@ -198,10 +200,11 @@ main > .credentials {
 }
 .skill-symbol {
   width: 35px;
-  font-size: 18px;
+  font-size: 1.125rem;
+  flex-shrink: 0;
 }
 .skill-tabs button {
-  font-size: 14px;
+  font-size: var(--text-small);
 }
 .timeline-item {
   margin-bottom: 18px;
@@ -222,19 +225,19 @@ main > .credentials {
   border-radius: 9px;
 }
 .timeline-item > div > p {
-  font-size: 15px;
+  font-size: var(--text-body);
   max-width: 850px;
   color: #e0d1ec;
 }
 .timeline-tag {
-  font-size: 11px;
+  font-size: var(--text-caption);
   width: 17%;
 }
 .timeline-title > strong {
-  font-size: 23px;
+  font-size: 1.4375rem;
 }
 .timeline-title > span {
-  font-size: 14px;
+  font-size: var(--text-small);
 }
 .degree-card {
   border-color: #c59bed65;
@@ -249,24 +252,24 @@ main > .credentials {
 }
 .school-heading p,
 .institution-name {
-  font-size: 14px;
+  font-size: var(--text-small);
 }
 .school-heading .micro-label {
-  font-size: 10px;
+  font-size: var(--text-caption);
 }
 .degree-gpa > span {
-  font-size: 11px;
+  font-size: var(--text-caption);
 }
 .qualification summary {
   padding: 22px 0;
 }
 .qualification h4,
 .scholarship-record h4 {
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 .exam-results dt,
 .exam-results dd {
-  font-size: 14px;
+  font-size: var(--text-small);
 }
 .scholarship-score {
   background: #382544;
@@ -279,11 +282,11 @@ main > .credentials {
   box-shadow: 0 15px 55px #07030c33;
 }
 .achievement-description {
-  font-size: 15px;
+  font-size: var(--text-body);
   line-height: 1.9;
 }
 .achievement-recipient {
-  font-size: 16px;
+  font-size: 1rem;
 }
 .achievement-visual {
   min-height: 500px;
@@ -304,7 +307,7 @@ main > .credentials {
   border-color: #94d4b253;
 }
 .certificate-description h4 {
-  font-size: 17px;
+  font-size: 1.0625rem;
 }
 .certificate-symbol {
   height: 52px;
@@ -313,7 +316,7 @@ main > .credentials {
   border-color: #c3a3da55;
 }
 .course-status {
-  font-size: 12px;
+  font-size: var(--text-caption);
 }
 .contact-artwork {
   width: 260px;
@@ -324,16 +327,16 @@ main > .credentials {
   display: none;
 }
 .contact > p {
-  font-size: 16px;
+  font-size: var(--text-body);
 }
 .contact-links a {
-  font-size: 14px;
+  font-size: var(--text-small);
 }
 .copy-email {
-  font-size: 14px;
+  font-size: var(--text-small);
 }
 .section-shell .contact-button {
-  font-size: 15px;
+  font-size: var(--text-small);
   padding: 19px 29px;
 }
 [data-tilt] {
@@ -365,10 +368,10 @@ main > .credentials {
     padding: 32px;
   }
   .feature-copy p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .timeline-title > strong {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .contact-artwork {
     width: 260px;
@@ -380,7 +383,7 @@ main > .credentials {
     padding: 65px 6%;
   }
   .section-label {
-    font-size: 10px;
+    font-size: var(--text-caption);
     letter-spacing: 1.1px;
   }
   .section-heading {
@@ -393,11 +396,13 @@ main > .credentials {
     gap: 18px;
     align-items: center;
     margin-top: 18px;
+    flex-wrap: wrap;
   }
   .heading-aside > p {
     text-align: left;
-    font-size: 14px;
+    font-size: var(--text-body);
     flex: 1;
+    min-width: min(100%, 18ch);
   }
   .section-artwork {
     width: 150px;
@@ -405,9 +410,10 @@ main > .credentials {
     flex-shrink: 0;
   }
   .artwork-caption {
-    font-size: 8px;
+    font-size: var(--text-caption);
     letter-spacing: 0.6px;
-    bottom: -2px;
+    bottom: 4px;
+    line-height: 1.4;
   }
   .about-heading .heading-aside {
     justify-content: flex-end;
@@ -421,24 +427,24 @@ main > .credentials {
     padding: 4px 0 4px 22px;
   }
   .about-story p {
-    font-size: 15px;
+    font-size: var(--text-body);
   }
   .portrait-label {
-    font-size: 10px;
+    font-size: var(--text-caption);
     line-height: 1.7;
     gap: 15px;
   }
   .portrait-orbit {
-    font-size: 65px;
+    font-size: 4.0625rem;
   }
   .feature-copy {
     padding: 28px 24px;
   }
   .feature-copy p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .feature-copy .micro-label {
-    font-size: 10px;
+    font-size: var(--text-caption);
   }
   .feature-stage {
     min-height: 330px;
@@ -447,23 +453,23 @@ main > .credentials {
     min-height: 370px;
   }
   .project-number > span {
-    font-size: 10px;
+    font-size: var(--text-caption);
   }
   .archive-project h4 {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .archive-project > div:last-child > span {
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .project-filters button {
-    font-size: 12px;
+    font-size: var(--text-small);
   }
   .tech-tags > span {
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .stage-label,
   .stage-note {
-    font-size: 9px;
+    font-size: var(--text-caption);
     letter-spacing: 0.5px;
   }
   .toolkit-orb {
@@ -474,10 +480,10 @@ main > .credentials {
     height: 280px;
   }
   .orb-tag {
-    font-size: 10px;
+    font-size: var(--text-caption);
   }
   .skill {
-    font-size: 14px;
+    font-size: var(--text-body);
     padding: 17px 12px;
     gap: 10px;
   }
@@ -485,10 +491,10 @@ main > .credentials {
     gap: 22px;
   }
   .skill-tabs button {
-    font-size: 13px;
+    font-size: var(--text-small);
   }
   .toolkit-note {
-    font-size: 12px;
+    font-size: var(--text-small);
   }
   .journey .section-heading {
     display: block;
@@ -504,69 +510,69 @@ main > .credentials {
     padding: 22px 18px;
   }
   .timeline-title > strong {
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   .timeline-title > span {
-    font-size: 13px;
+    font-size: var(--text-small);
   }
   .timeline-item > div {
     padding: 20px 18px;
   }
   .timeline-item > div > p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .timeline-tag {
     width: 100%;
-    font-size: 10px;
+    font-size: var(--text-caption);
   }
   .degree-content h3 {
-    font-size: 21px;
+    font-size: 1.3125rem;
   }
   .institution-name,
   .specialization {
-    font-size: 13px;
+    font-size: var(--text-small);
   }
   .education-meta {
-    font-size: 11px;
+    font-size: var(--text-caption);
     gap: 10px;
   }
   .education-meta .education-status {
-    font-size: 10px !important;
+    font-size: var(--text-caption);
   }
   .degree-gpa > span {
-    font-size: 10px;
+    font-size: var(--text-caption);
   }
   .school-heading h3 {
-    font-size: 21px;
+    font-size: 1.3125rem;
   }
   .qualification h4,
   .scholarship-record h4 {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .qualification-stream {
-    font-size: 12px;
+    font-size: var(--text-small);
   }
   .exam-results dt,
   .exam-results dd {
-    font-size: 13px;
+    font-size: var(--text-small);
   }
   .achievement-visual {
     min-height: 370px;
   }
   .achievement-description {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .achievement-recipient {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .achievement-date {
-    font-size: 12px;
+    font-size: var(--text-caption);
   }
   .achievement-copy h3 {
-    font-size: 31px;
+    font-size: 1.9375rem;
   }
   .achievement-image-label {
-    font-size: 9px;
+    font-size: var(--text-caption);
     letter-spacing: 0.6px;
   }
   .certificate-record {
@@ -577,20 +583,20 @@ main > .credentials {
     flex-basis: calc(100% - 64px);
   }
   .certificate-description h4 {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
   .certificate-number {
-    font-size: 10px;
+    font-size: var(--text-caption);
   }
   .course-status {
     margin-left: 64px;
-    font-size: 11px;
+    font-size: var(--text-caption);
   }
   .certificate-list-heading h3 {
-    font-size: 19px;
+    font-size: 1.1875rem;
   }
   .certificate-list-heading > span {
-    font-size: 9px;
+    font-size: var(--text-caption);
   }
   .contact-artwork {
     width: 250px;
@@ -598,13 +604,13 @@ main > .credentials {
     margin: 20px auto;
   }
   .contact > p {
-    font-size: 14px;
+    font-size: var(--text-body);
   }
   .contact-links a {
-    font-size: 13px;
+    font-size: var(--text-small);
   }
   .copy-email {
-    font-size: 12px;
+    font-size: var(--text-small);
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -9,16 +9,22 @@
   --cyan: #8cd5de;
   --muted: #cfc1db;
   --line: #ffffff16;
+  --text-caption: 0.75rem;
+  --text-small: 0.875rem;
+  --text-body: 1rem;
 }
 * {
   box-sizing: border-box;
 }
 html {
+  font-size: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 40px;
 }
 body {
   margin: 0;
+  font-size: var(--text-body);
+  line-height: 1.6;
 }
 body:has(dialog[open]) {
   overflow: hidden;
@@ -82,7 +88,7 @@ em {
 .section-label {
   display: flex;
   gap: 18px;
-  font-size: 11px;
+  font-size: var(--text-caption);
   letter-spacing: 1.8px;
   line-height: 1.7;
   color: #dac8eb;
@@ -93,7 +99,7 @@ em {
 }
 h2 {
   font:
-    500 clamp(40px, 4.6vw, 75px)/1.14 Manrope,
+    500 clamp(2.5rem, 4.6vw, 4.6875rem)/1.14 Manrope,
     sans-serif;
   letter-spacing: -0.055em;
 }
@@ -108,7 +114,7 @@ h2 > span {
   margin-bottom: 65px;
 }
 .section-heading > p {
-  font-size: 14px;
+  font-size: var(--text-body);
   line-height: 1.8;
   color: var(--muted);
   padding-bottom: 7px;
@@ -121,7 +127,7 @@ h2 > span {
   padding: 16px 14px;
   border-radius: 3px;
   background: #2a2038;
-  font-size: 14px;
+  font-size: var(--text-body);
 }
 .skill > svg {
   color: #ba95d6;

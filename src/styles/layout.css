@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 .brand-mark {
   display: block;
@@ -24,13 +25,13 @@
   object-fit: contain;
 }
 .brand-wordmark {
-  font-size: 9px;
+  font-size: var(--text-small);
   letter-spacing: 1.8px;
   font-weight: 650;
   line-height: 1.6;
 }
 .brand small {
-  font-size: 8px;
+  font-size: var(--text-caption);
   font-weight: 450;
   letter-spacing: 1.5px;
   color: #bcb4c2;
@@ -38,8 +39,9 @@
 .top-nav {
   display: flex;
   gap: 36px;
-  font-size: 12px;
+  font-size: var(--text-small);
   color: #bab4c2;
+  white-space: nowrap;
 }
 .top-nav a,
 .header-contact {
@@ -52,10 +54,12 @@
   display: flex;
   align-items: center;
   gap: 30px;
-  font-size: 11px;
+  font-size: var(--text-small);
   border: 1px solid #ffffff35;
   border-radius: 30px;
   padding: 12px 18px;
+  min-height: 44px;
+  flex-shrink: 0;
 }
 .header-contact:hover {
   color: var(--peach);
@@ -63,6 +67,13 @@
 }
 .mobile-menu {
   display: none;
+  min-width: 44px;
+  min-height: 44px;
+}
+.top-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
 }
 .site-footer {
   padding: 32px 5% 115px;
@@ -71,29 +82,31 @@
   justify-content: space-between;
   border-top: 1px solid var(--line);
   gap: 20px;
+  flex-wrap: wrap;
 }
 .footer-name {
   display: flex;
   align-items: center;
   gap: 12px;
-  font: 700 26px Manrope;
+  font: 700 1.625rem Manrope;
   letter-spacing: -1.5px;
+  min-width: 0;
 }
 .footer-name .brand-mark {
   width: 40px;
   height: 40px;
 }
 .footer-wordmark {
-  font-size: clamp(15px, 1.8vw, 22px);
+  font-size: clamp(0.9375rem, 1.8vw, 1.375rem);
   letter-spacing: -0.5px;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 .site-footer > span {
-  font-size: 8px;
-  color: #887690;
+  font-size: var(--text-caption);
+  color: #baaac7;
 }
 .site-footer > span:nth-child(3) {
-  font-size: 7px;
+  font-size: var(--text-caption);
   letter-spacing: 1.1px;
 }
 .site-footer > span:nth-child(3) > span {
@@ -101,7 +114,7 @@
   margin-left: 8px;
 }
 .site-footer > a:last-child {
-  font-size: 7px;
+  font-size: var(--text-small);
   letter-spacing: 1px;
   display: flex;
   align-items: center;
@@ -122,6 +135,7 @@
   backdrop-filter: blur(22px);
   box-shadow: 0 10px 40px #0008;
   z-index: 20;
+  max-width: calc(100% - 24px);
 }
 .floating-dock > a {
   display: flex;
@@ -130,7 +144,10 @@
   padding: 11px 18px;
   border-radius: 30px;
   color: #b9aac4;
-  font-size: 10px;
+  font-size: var(--text-small);
+  min-width: 0;
+  min-height: 44px;
+  justify-content: center;
   transition:
     background 0.2s,
     color 0.2s;
@@ -144,9 +161,41 @@
   color: #2b2032;
 }
 .top-nav {
-  gap: 25px;
+  gap: clamp(14px, 1.7vw, 25px);
 }
 .floating-dock > a {
   padding-left: 14px;
   padding-right: 14px;
+}
+@media (max-width: 950px) {
+  .floating-dock > a > span {
+    display: none;
+  }
+}
+@media (min-width: 951px) and (max-width: 1200px) {
+  .top-nav {
+    display: none;
+    position: absolute;
+    top: 99px;
+    left: 0;
+    right: 0;
+    background: #1b1124fa;
+    padding: 25px 6%;
+    border-bottom: 1px solid #694a7c;
+  }
+  .top-nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .mobile-menu {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .header-contact {
+    margin-left: auto;
+    margin-right: 20px;
+  }
 }

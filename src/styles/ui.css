@@ -1,5 +1,5 @@
 .micro-label {
-  font-size: 11px;
+  font-size: var(--text-caption);
   letter-spacing: 1.6px;
   color: #ceb9df;
   text-transform: uppercase;
@@ -8,7 +8,7 @@
   display: inline-flex;
   align-items: center;
   gap: 25px;
-  font-size: 14px;
+  font-size: var(--text-small);
   padding-bottom: 9px;
   border-bottom: 1px solid #695476;
   margin-top: 12px;
@@ -23,7 +23,7 @@
   margin: 21px 0 28px;
 }
 .tech-tags > span {
-  font-size: 11px;
+  font-size: var(--text-caption);
   border: 1px solid #7e628138;
   padding: 6px 10px;
   border-radius: 20px;
@@ -38,7 +38,7 @@
   color: #241925;
   border-radius: 40px;
   padding: 17px 24px;
-  font-size: 14px;
+  font-size: var(--text-small);
   font-weight: 500;
   transition:
     background 0.2s,
@@ -64,7 +64,7 @@
   color: #f2e6fa;
 }
 .contact-button.small {
-  font-size: 14px;
+  font-size: var(--text-small);
   padding: 13px 20px;
 }
 .sr-only {
