@@ -1,0 +1,155 @@
+import type { SkillCredential } from '../types/portfolio';
+
+// Titles, issue dates and verification URLs are transcribed from the supplied original PDFs.
+// These are skill credentials within a learning path, not a professional certification exam.
+const credentials: Omit<SkillCredential, 'badge' | 'preview' | 'pdf'>[] = [
+  {
+    id: 'overview',
+    title: 'MongoDB Overview: Core Concepts and Architecture',
+    skill: 'MongoDB Overview',
+    category: 'Foundations',
+    description:
+      'Document models, flexible schemas and the distributed architecture behind MongoDB.',
+    issuedOn: '2026-10-19',
+    durationMinutes: 60,
+    verificationUrl: 'https://www.credly.com/badges/20738af9-0e4d-47b4-8465-68a486b2aecc',
+  },
+  {
+    id: 'crud',
+    title: 'CRUD Operations in MongoDB',
+    skill: 'CRUD Operations in MongoDB',
+    category: 'Foundations',
+    description: 'Creating, reading, updating and deleting documents in MongoDB.',
+    issuedOn: '2026-10-19',
+    durationMinutes: 90,
+    verificationUrl: 'https://www.credly.com/badges/8d3fe2d1-4c2d-4991-9376-a9447cf063e8',
+  },
+  {
+    id: 'aggregation',
+    title: 'MongoDB Aggregation Fundamentals',
+    skill: 'Fundamentals of Data Transformation',
+    category: 'Foundations',
+    description: 'Aggregation pipelines to process, transform and analyze data efficiently.',
+    issuedOn: '2026-10-19',
+    durationMinutes: 50,
+    verificationUrl: 'https://www.credly.com/badges/95b56f25-4475-4735-8528-5c098a266f20',
+  },
+  {
+    id: 'indexing',
+    title: 'MongoDB Indexing Design Fundamentals',
+    skill: 'Indexing Design Fundamentals',
+    category: 'Performance',
+    description: 'Efficient index design to accelerate queries and reduce resource consumption.',
+    issuedOn: '2026-10-19',
+    durationMinutes: 60,
+    verificationUrl: 'https://www.credly.com/badges/4a68781f-9bec-46bc-9fbc-d738fcdf6325',
+  },
+  {
+    id: 'query-optimization',
+    title: 'MongoDB Query Optimization Techniques',
+    skill: 'Query Optimization',
+    category: 'Performance',
+    description: 'Query tuning techniques to reduce execution time and avoid slow queries.',
+    issuedOn: '2026-10-19',
+    durationMinutes: 90,
+    verificationUrl: 'https://www.credly.com/badges/669b1813-fc13-49ed-b17b-04daeb432228',
+  },
+  {
+    id: 'sharding',
+    title: 'MongoDB Sharding Strategies',
+    skill: 'Sharding Strategies',
+    category: 'Scaling & resilience',
+    description: 'Designing and managing sharded clusters to scale MongoDB horizontally.',
+    issuedOn: '2026-10-19',
+    durationMinutes: 90,
+    verificationUrl: 'https://www.credly.com/badges/ea2cd6dd-62ce-4948-bf9e-fb35e839e229',
+  },
+  {
+    id: 'monitoring',
+    title: 'Monitoring MongoDB with Built-in Tools',
+    skill: 'Monitoring Tooling',
+    category: 'Performance',
+    description: 'Monitoring tools, performance metrics and alerts for critical database events.',
+    issuedOn: '2026-10-20',
+    durationMinutes: 60,
+    verificationUrl: 'https://www.credly.com/badges/a6c58604-a346-4672-9671-06105fa26094',
+  },
+  {
+    id: 'performance',
+    title: 'Optimizing MongoDB Performance with Tuning Tools',
+    skill: 'Performance Tools and Techniques',
+    category: 'Performance',
+    description: 'Profiling, slow query analysis, index tuning and cache utilization.',
+    issuedOn: '2026-10-20',
+    durationMinutes: 60,
+    verificationUrl: 'https://www.credly.com/badges/fd585864-b467-4dbd-954b-bd2aeb6db170',
+  },
+  {
+    id: 'data-resilience',
+    title: 'Data Resilience in MongoDB Atlas',
+    skill: 'Data Resilience: Atlas',
+    category: 'Scaling & resilience',
+    description:
+      'Multi-region deployments, automated failover, continuous backups and data protection.',
+    issuedOn: '2026-10-20',
+    durationMinutes: 45,
+    verificationUrl: 'https://www.credly.com/go/spCCVQ1h',
+  },
+  {
+    id: 'cluster-reliability',
+    title: 'Optimizing and Maintaining MongoDB Cluster Reliability',
+    skill: 'Cluster Reliability',
+    category: 'Scaling & resilience',
+    description:
+      'Diagnosing replication, sharding and performance issues to maintain availability.',
+    issuedOn: '2026-10-20',
+    durationMinutes: 90,
+    verificationUrl: 'https://www.credly.com/badges/2d1f8eed-77c3-48fc-a879-5667334e712b',
+  },
+  {
+    id: 'authentication',
+    title: 'Securing MongoDB Atlas: Authentication & Authorization',
+    skill: 'Secure MongoDB Atlas: AuthN and AuthZ',
+    category: 'Security',
+    description: 'Configuring authentication and authorization to secure database access.',
+    issuedOn: '2026-10-20',
+    durationMinutes: 60,
+    verificationUrl: 'https://www.credly.com/badges/5b394601-5a47-4eee-b9e1-03b8353d616b',
+  },
+  {
+    id: 'network-security',
+    title: 'Securing MongoDB Atlas Networking',
+    skill: 'Networking Security: Atlas',
+    category: 'Security',
+    description:
+      'VPC peering, private endpoints, network access controls and encryption in transit.',
+    issuedOn: '2026-10-20',
+    durationMinutes: 45,
+    verificationUrl: 'https://www.credly.com/go/PKv1AQ4K',
+  },
+  {
+    id: 'encryption',
+    title: 'MongoDB Encryption at Rest with BYOK',
+    skill: 'Encryption at Rest',
+    category: 'Security',
+    description: 'Customer-managed encryption keys, KMS integration and encryption policies.',
+    issuedOn: '2026-10-20',
+    durationMinutes: 45,
+    verificationUrl: 'https://www.credly.com/go/QlqhOLuk',
+  },
+];
+
+export const mongodbCredentials: SkillCredential[] = credentials.map((credential) => ({
+  ...credential,
+  badge: `./Images/Credentials/MongoDB/${credential.id}-badge.png`,
+  preview: `./Images/Credentials/MongoDB/${credential.id}-certificate.webp`,
+  pdf: `./credentials/mongodb/${credential.id}.pdf`,
+}));
+
+export const mongodbPath = {
+  title: 'MongoDB Atlas Administrator Path',
+  issuer: 'MongoDB',
+  requiredSkills: 13,
+  description:
+    'From document fundamentals to secure, resilient cloud deployments. A completed learning path covering how to create, administer, monitor and protect MongoDB Atlas clusters.',
+};

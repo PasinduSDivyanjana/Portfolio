@@ -30,7 +30,12 @@ export function useHeroMotion() {
     };
   }, []);
   const onPointerMove = (event: PointerEvent<HTMLElement>) => {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (
+      event.pointerType !== 'mouse' ||
+      !matchMedia('(hover: hover) and (pointer: fine)').matches ||
+      matchMedia('(prefers-reduced-motion: reduce)').matches
+    )
+      return;
     const rect = event.currentTarget.getBoundingClientRect();
     event.currentTarget.style.setProperty(
       '--mx',

@@ -39,3 +39,19 @@ export interface Certificate {
   issuer: string;
   status: 'Completed' | 'In progress';
 }
+
+export type CredentialCategory =
+  'Foundations' | 'Performance' | 'Scaling & resilience' | 'Security';
+export interface SkillCredential {
+  id: string;
+  title: string;
+  skill: string;
+  category: CredentialCategory;
+  description: string;
+  issuedOn: string;
+  durationMinutes: number;
+  verificationUrl: string;
+  badge: string;
+  preview: string;
+  pdf: string;
+}

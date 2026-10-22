@@ -6,6 +6,7 @@ import { profile } from '../data/profile';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { CertificateRecord } from '../components/CertificateRecord';
 import { Modal } from '../components/ui/Modal';
+import { LearningPath } from '../components/credentials/LearningPath';
 export function CertificationsSection() {
   const [showPhoto, setShowPhoto] = useState(false);
   const motion = useTilt<HTMLDivElement>(4);
@@ -29,12 +30,13 @@ export function CertificationsSection() {
         }
         description={
           <>
-            Professional learning and recognition.
+            Earned skills and professional recognition.
             <br />
             Completed courses and the work in progress.
           </>
         }
       />
+      <LearningPath />
       <div className="achievement-feature" data-reveal {...motion}>
         <div className="achievement-visual">
           <img

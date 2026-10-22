@@ -72,6 +72,8 @@ export default function Atmosphere() {
       frame: number | undefined,
       scroll = 0;
     const move = (e: PointerEvent) => {
+      if (e.pointerType !== 'mouse' || !matchMedia('(hover: hover) and (pointer: fine)').matches)
+        return;
       pointer.x = (e.clientX / innerWidth - 0.5) * 0.3;
       pointer.y = (e.clientY / innerHeight - 0.5) * 0.2;
     };
