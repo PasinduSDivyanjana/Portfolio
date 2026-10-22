@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 0.75fr 1.25fr;
   min-height: 510px;
-  background: #121017;
+  background: #231a30;
   border: 1px solid #ffffff0c;
   border-radius: 5px;
   overflow: hidden;
@@ -30,9 +30,9 @@
   margin-bottom: 45px;
 }
 .project-number > span {
-  font: 400 7px 'DM Sans';
+  font: 400 12px 'DM Sans';
   letter-spacing: 1.1px;
-  color: #766b80;
+  color: #baa5ca;
 }
 .feature-copy h3 {
   font: 500 clamp(25px, 2.8vw, 45px)/1.1 Manrope;
@@ -40,16 +40,16 @@
   margin: 15px 0 20px;
 }
 .feature-copy h3 > span {
-  font-size: 12px;
+  font-size: 14px;
   vertical-align: top;
   line-height: 1.8;
   margin-left: 3px;
   color: #8a7d96;
 }
 .feature-copy p {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.9;
-  color: #9c91a5;
+  color: #d6c9e1;
   max-width: 300px;
 }
 .round-link {
@@ -57,7 +57,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 35px;
-  font-size: 10px;
+  font-size: 14px;
   padding: 0;
   margin-top: auto;
 }
@@ -80,7 +80,7 @@
   position: relative;
   display: grid;
   place-items: center;
-  overflow: hidden;
+  overflow: clip;
   min-height: 510px;
   padding: 50px 35px;
   background: radial-gradient(ellipse at 50% 35%, #624b2d38, transparent 65%), #201c18;
@@ -102,20 +102,6 @@
   border: 1px solid #ffffff0b;
   border-radius: 50%;
 }
-.browser-mockup {
-  width: 100%;
-  height: 290px;
-  overflow: hidden;
-  border: 1px solid #ffffff25;
-  border-radius: 7px;
-  background: #141414;
-  box-shadow: 0 35px 60px #0008;
-  transform: rotateY(-13deg) rotateX(5deg) rotateZ(1deg);
-  transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-.feature-stage:hover .browser-mockup {
-  transform: rotateY(-3deg) rotateX(1deg) rotateZ(0) translateY(-7px);
-}
 .browser-bar {
   height: 24px;
   background: #282724;
@@ -123,7 +109,7 @@
   gap: 4px;
   align-items: center;
   padding: 0 10px;
-  color: #9b9691;
+  color: #d9cfc5;
 }
 .browser-bar i {
   width: 4px;
@@ -138,42 +124,16 @@
   border-radius: 2px;
   padding: 3px 28px;
 }
-.browser-mockup > img {
-  display: block;
-  width: 100%;
-  height: auto;
-  min-height: 266px;
-  object-fit: cover;
-  object-position: top;
-}
-.stage-note {
-  position: absolute;
-  bottom: 22px;
-  left: 25px;
-  right: 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 7px;
-  letter-spacing: 1px;
-  color: #b3a38c;
-}
 .stage-label {
   position: absolute;
   top: 23px;
   left: 26px;
-  font-size: 7px;
+  font-size: 11px;
   letter-spacing: 1.6px;
-  color: #b4a088;
+  color: #e6d1b2;
 }
 .feature-rose .feature-stage {
   background: radial-gradient(ellipse at 50% 35%, #9c506037, transparent 65%), #25191f;
-}
-.feature-rose .browser-mockup {
-  transform: rotateY(13deg) rotateX(5deg) rotateZ(-2deg);
-}
-.feature-rose .feature-stage:hover .browser-mockup {
-  transform: rotateY(3deg) rotateX(1deg) rotateZ(0) translateY(-7px);
 }
 .feature-rose .project-number {
   color: #d2a0ae;
@@ -183,24 +143,6 @@
 }
 .feature-blue .project-number {
   color: #9ecad0;
-}
-.phone-mockup {
-  position: relative;
-  height: 360px;
-  width: 185px;
-  border: 6px solid #11191b;
-  outline: 1px solid #6b7e8460;
-  border-radius: 27px;
-  overflow: hidden;
-  box-shadow: 15px 35px 50px #0007;
-  transform: rotateY(-18deg) rotateZ(8deg);
-  transition: transform 0.7s;
-}
-.phone-mockup img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
 }
 .phone-island {
   position: absolute;
@@ -212,12 +154,8 @@
   background: #11171a;
   border-radius: 15px;
 }
-.phone-stage:hover .phone-mockup {
-  transform: rotateY(-5deg) rotateZ(2deg) translateY(-8px);
-}
-.feature-blue .stage-note,
 .feature-blue .stage-label {
-  color: #85aeb4;
+  color: #b9edf4;
 }
 .archive-heading {
   display: flex;
@@ -231,8 +169,8 @@
   letter-spacing: -0.6px;
 }
 .archive-heading h3 span {
-  font-size: 10px;
-  color: #766780;
+  font-size: 14px;
+  color: #c6afd6;
   margin-left: 8px;
 }
 .project-filters {
@@ -243,10 +181,10 @@
   gap: 3px;
 }
 .project-filters button {
-  font-size: 9px;
+  font-size: 14px;
   padding: 8px 14px;
   border-radius: 20px;
-  color: #91859b;
+  color: #c5b1d7;
 }
 .project-filters button.selected {
   background: #2c2235;
@@ -302,12 +240,12 @@
   margin-top: 14px;
 }
 .archive-project h4 {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
 }
 .archive-project > div:last-child > span {
-  font-size: 8px;
-  color: #897c93;
+  font-size: 14px;
+  color: #c4afd6;
 }
 .archive-project.blue .archive-image,
 .archive-project.violet .archive-image {

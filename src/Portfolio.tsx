@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { lazy, Suspense, useRef } from 'react';
 import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { SectionNavigation } from './components/layout/SectionNavigation';
@@ -13,6 +13,8 @@ import { CertificationsSection } from './sections/CertificationsSection';
 import { ContactSection } from './sections/ContactSection';
 import { useReveal } from './hooks/useReveal';
 import { useActiveSection } from './hooks/useActiveSection';
+
+const SectionScenes = lazy(() => import('./components/SectionScenes'));
 
 export default function Portfolio() {
   const main = useRef<HTMLElement>(null);
@@ -36,6 +38,9 @@ export default function Portfolio() {
         <ContactSection />
       </main>
       <Footer />
+      <Suspense fallback={null}>
+        <SectionScenes />
+      </Suspense>
       <SectionNavigation active={active} />
     </>
   );

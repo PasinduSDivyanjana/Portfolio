@@ -2,6 +2,7 @@ import { SectionLabel } from '../components/ui/SectionLabel';
 import { ArrowUpRight, Copy, Check } from 'lucide-react';
 import { profile } from '../data/profile';
 import { useClipboard } from '../hooks/useClipboard';
+import { SectionArtwork } from '../components/ui/SectionArtwork';
 export function ContactSection() {
   const { copied, copy } = useClipboard();
   const copyEmail = async () => {
@@ -11,9 +12,7 @@ export function ContactSection() {
     <section className="contact section-shell" id="contact">
       <div className="contact-glow" />
       <SectionLabel number="07">GOOD THINGS START WITH A CONVERSATION</SectionLabel>
-      <span className="contact-spark" aria-hidden="true">
-        ✳
-      </span>
+      <SectionArtwork kind="contact" className="contact-artwork" />
       <h2>
         Have an idea?
         <br />

@@ -17,15 +17,6 @@
     translate: 0 -9px;
   }
 }
-@keyframes orb-float {
-  0%,
-  100% {
-    transform: rotate(-12deg) translateY(0);
-  }
-  50% {
-    transform: rotate(-8deg) translateY(-12px);
-  }
-}
 @keyframes marquee {
   to {
     transform: translateX(-50%);

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTilt } from '../hooks/useTilt';
 import { ArrowUpRight, Award, CalendarDays, Trophy } from 'lucide-react';
 import { achievement, certificates } from '../data/credentials';
 import { profile } from '../data/profile';
@@ -7,6 +8,7 @@ import { CertificateRecord } from '../components/CertificateRecord';
 import { Modal } from '../components/ui/Modal';
 export function CertificationsSection() {
   const [showPhoto, setShowPhoto] = useState(false);
+  const motion = useTilt<HTMLDivElement>(4);
   return (
     <section
       className="credentials section-shell"
@@ -14,6 +16,7 @@ export function CertificationsSection() {
       aria-labelledby="credentials-title"
     >
       <SectionHeading
+        artwork="awards"
         number="06"
         label="LEARNING & RECOGNITION"
         titleId="credentials-title"
@@ -32,7 +35,7 @@ export function CertificationsSection() {
           </>
         }
       />
-      <div className="achievement-feature" data-reveal>
+      <div className="achievement-feature" data-reveal {...motion}>
         <div className="achievement-visual">
           <img
             src={profile.portrait}

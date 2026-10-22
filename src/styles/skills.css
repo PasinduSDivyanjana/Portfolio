@@ -16,66 +16,12 @@
   place-items: center;
   perspective: 800px;
 }
-.orb-core {
-  width: 150px;
-  height: 150px;
-  border-radius: 36px;
-  background: linear-gradient(135deg, #45305d, #20152e 70%);
-  border: 1px solid #b291d54d;
-  display: grid;
-  place-items: center;
-  color: #c6aae9;
-  box-shadow:
-    inset 0 0 35px #a57ad920,
-    0 0 90px #6a28a32b;
-  transform: rotate(-12deg);
-  animation: orb-float 8s ease-in-out infinite;
-}
-.orb-ring {
-  position: absolute;
-  width: 310px;
-  height: 240px;
-  border: 1px solid #a280c52c;
-  border-radius: 50%;
-  transform: rotate(-30deg);
-}
-.ring-b {
-  transform: rotate(40deg);
-  width: 300px;
-  height: 280px;
-  border-style: dashed;
-  opacity: 0.6;
-}
 .orb-tag {
   position: absolute;
   bottom: 0;
-  font-size: 7px;
+  font-size: 11px;
   letter-spacing: 1.4px;
-  color: #a494b6;
-}
-.orb-satellite {
-  position: absolute;
-  width: 45px;
-  height: 45px;
-  display: grid;
-  place-items: center;
-  border: 1px solid #6b547a;
-  border-radius: 12px;
-  background: #21162d;
-  color: #cab0df;
-  font-size: 14px;
-  animation: float 6s ease-in-out infinite;
-}
-.satellite-one {
-  top: 30px;
-  right: 40px;
-  transform: rotate(14deg);
-}
-.satellite-two {
-  left: 10%;
-  bottom: 45px;
-  transform: rotate(-10deg);
-  color: var(--cyan);
+  color: #d0b8e5;
 }
 .skill-tabs {
   display: flex;
@@ -84,8 +30,8 @@
   margin-bottom: 23px;
 }
 .skill-tabs button {
-  font-size: 11px;
-  color: #96879f;
+  font-size: 14px;
+  color: #d5c0e7;
   padding: 0 0 16px;
   position: relative;
 }
@@ -112,8 +58,8 @@
   width: 30px;
 }
 .toolkit-note {
-  font-size: 9px;
+  font-size: 14px;
   line-height: 1.8;
-  color: #776782;
+  color: #bda6d2;
   margin-top: 20px;
 }

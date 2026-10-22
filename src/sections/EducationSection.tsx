@@ -3,10 +3,13 @@ import { degree, schools } from '../data/education';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { InstitutionLogo } from '../components/education/InstitutionLogo';
 import { SchoolRecord } from '../components/education/SchoolRecord';
+import { useTilt } from '../hooks/useTilt';
 export function EducationSection() {
+  const motion = useTilt<HTMLElement>(4);
   return (
     <section className="education section-shell" id="education" aria-labelledby="education-title">
       <SectionHeading
+        artwork="education"
         number="05"
         label="ACADEMIC JOURNEY"
         titleId="education-title"
@@ -24,7 +27,7 @@ export function EducationSection() {
           </>
         }
       />
-      <article className="degree-card" data-reveal>
+      <article className="degree-card" data-reveal {...motion}>
         <InstitutionLogo src={degree.logo} alt="SLIIT" />
         <div className="degree-content">
           <div className="education-meta">

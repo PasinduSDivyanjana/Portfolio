@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 import { SectionLabel } from './SectionLabel';
+import { SectionArtwork } from './SectionArtwork';
+import type { SceneKind } from '../../types/scenes';
 interface Props {
   number: string;
   label: string;
@@ -8,6 +10,7 @@ interface Props {
   description?: ReactNode;
   decoration?: ReactNode;
   className?: string;
+  artwork?: SceneKind;
 }
 export function SectionHeading({
   number,
@@ -17,6 +20,7 @@ export function SectionHeading({
   description,
   decoration,
   className = 'section-heading',
+  artwork,
 }: Props) {
   return (
     <div className={className} data-reveal>
@@ -24,8 +28,13 @@ export function SectionHeading({
         <SectionLabel number={number}>{label}</SectionLabel>
         <h2 id={titleId}>{title}</h2>
       </div>
-      {description && <p>{description}</p>}
-      {decoration}
+      {(description || decoration || artwork) && (
+        <div className="heading-aside">
+          {artwork && <SectionArtwork kind={artwork} />}
+          {description && <p>{description}</p>}
+          {decoration}
+        </div>
+      )}
     </div>
   );
 }

@@ -15,6 +15,7 @@ export function WorkSection() {
     <>
       <section className="work section-shell" id="work">
         <SectionHeading
+          artwork="work"
           number="02"
           label="SELECTED WORK"
           title={

@@ -19,9 +19,6 @@
   .feature-stage {
     min-height: 580px;
   }
-  .browser-mockup {
-    height: 370px;
-  }
 }
 @media (max-width: 1100px) {
   .hero {
@@ -65,7 +62,7 @@
     font-size: 28px;
   }
   .about-story p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .feature {
     grid-template-columns: 0.85fr 1.15fr;
@@ -77,9 +74,6 @@
     padding: 45px 23px;
     min-height: 490px;
   }
-  .browser-mockup {
-    height: 240px;
-  }
   .feature-copy h3 {
     font-size: 32px;
   }
@@ -90,17 +84,6 @@
   }
   .toolkit-layout {
     gap: 6%;
-  }
-  .orb-ring {
-    width: 260px;
-    height: 230px;
-  }
-  .orb-core {
-    height: 130px;
-    width: 130px;
-  }
-  .satellite-one {
-    right: 15px;
   }
   .timeline-title > strong {
     font-size: 18px;
@@ -294,7 +277,7 @@
     padding: 65px 6%;
   }
   .section-label {
-    font-size: 7px;
+    font-size: 11px;
     letter-spacing: 1.3px;
     gap: 13px;
     margin-bottom: 20px;
@@ -324,13 +307,13 @@
     font-size: 75px;
   }
   .portrait-label {
-    font-size: 6px;
+    font-size: 11px;
   }
   .about-story h3 {
     font-size: 29px;
   }
   .about-story p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .about-footnote {
     margin-top: 26px;
@@ -351,7 +334,7 @@
     margin-bottom: 37px;
   }
   .section-heading > p {
-    font-size: 11px;
+    font-size: 14px;
     margin-top: 22px;
   }
   .feature {
@@ -366,7 +349,7 @@
     font-size: 22px;
   }
   .project-number > span {
-    font-size: 6px;
+    font-size: 11px;
   }
   .feature-copy h3 {
     font-size: 35px;
@@ -374,7 +357,7 @@
   }
   .feature-copy p {
     max-width: none;
-    font-size: 11px;
+    font-size: 14px;
   }
   .feature-copy .tech-tags {
     margin: 17px 0 23px;
@@ -391,16 +374,13 @@
     min-height: 320px;
     padding: 55px 25px;
   }
-  .browser-mockup {
-    height: 205px;
-  }
   .stage-label {
-    font-size: 6px;
+    font-size: 11px;
     top: 18px;
     left: 20px;
   }
   .stage-note {
-    font-size: 6px;
+    font-size: 11px;
     bottom: 18px;
     left: 20px;
     right: 20px;
@@ -408,12 +388,6 @@
   .phone-stage {
     min-height: 360px;
     padding: 35px;
-  }
-  .phone-mockup {
-    height: 285px;
-    width: 147px;
-    border-width: 5px;
-    border-radius: 23px;
   }
   .archive-heading {
     margin: 45px 0 25px;
@@ -424,7 +398,7 @@
     font-size: 18px;
   }
   .project-filters button {
-    font-size: 9px;
+    font-size: 14px;
     padding: 8px 16px;
   }
   .archive-grid {
@@ -445,10 +419,10 @@
     width: 15px;
   }
   .archive-project h4 {
-    font-size: 11px;
+    font-size: 14px;
   }
   .archive-project > div:last-child > span {
-    font-size: 7px;
+    font-size: 14px;
     line-height: 1.4;
   }
   .archive-project > div:last-child {
@@ -465,60 +439,33 @@
     width: 100%;
     margin: auto;
   }
-  .orb-core {
-    width: 120px;
-    height: 120px;
-    border-radius: 30px;
-  }
-  .orb-core > svg {
-    width: 50px;
-  }
-  .orb-ring {
-    height: 220px;
-    width: 270px;
-  }
-  .ring-b {
-    height: 240px;
-    width: 250px;
-  }
-  .satellite-one {
-    top: 10px;
-    right: 35px;
-  }
-  .satellite-two {
-    bottom: 35px;
-    left: 6%;
-  }
   .orb-tag {
     bottom: 0;
-    font-size: 6px;
+    font-size: 11px;
   }
   .skill-tabs {
     gap: 27px;
     margin-bottom: 20px;
   }
   .skill-tabs button {
-    font-size: 10px;
+    font-size: 14px;
   }
   .skill {
-    font-size: 11px;
+    font-size: 14px;
     padding: 14px 11px;
     gap: 9px;
   }
   .skill-symbol {
     width: 25px;
-    font-size: 13px;
+    font-size: 14px;
   }
   .toolkit-note {
-    font-size: 8px;
+    font-size: 14px;
   }
   .journey .section-heading {
     display: flex;
     align-items: center;
     gap: 5px;
-  }
-  .journey-asterisk {
-    font-size: 50px;
   }
   .timeline-item {
     padding-left: 28px;
@@ -530,14 +477,14 @@
   }
   .timeline-tag {
     width: 100%;
-    font-size: 7px;
+    font-size: 11px;
   }
   .timeline-title > strong {
     font-size: 16px;
     line-height: 1.5;
   }
   .timeline-title > span {
-    font-size: 10px;
+    font-size: 14px;
   }
   .timeline-toggle {
     height: 28px;
@@ -547,7 +494,7 @@
     padding: 18px 20px 25px 0;
   }
   .timeline-item > div > p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .timeline-dot {
     top: 28px;
@@ -557,29 +504,25 @@
     padding-bottom: 70px;
   }
   .contact .section-label {
-    font-size: 6px;
+    font-size: 11px;
     letter-spacing: 0.8px;
     gap: 9px;
-  }
-  .contact-spark {
-    font-size: 40px;
-    margin-top: 25px;
   }
   .contact h2 {
     font-size: 42px;
     letter-spacing: -2.6px;
   }
   .contact > p {
-    font-size: 10px;
+    font-size: 14px;
     margin-top: 22px;
   }
   .contact-button {
-    font-size: 11px;
+    font-size: 14px;
     padding: 15px 22px;
     gap: 40px;
   }
   .copy-email {
-    font-size: 9px;
+    font-size: 14px;
     gap: 9px;
     max-width: 100%;
   }
@@ -588,7 +531,7 @@
     margin-top: 35px;
   }
   .contact-links a {
-    font-size: 9px;
+    font-size: 14px;
   }
   .site-footer {
     padding: 25px 6% 110px;
@@ -623,15 +566,6 @@
   .floating-dock > a svg {
     width: 14px;
     height: 14px;
-  }
-  .dialog-content {
-    padding: 25px;
-  }
-  .dialog-content h2 {
-    font-size: 32px;
-  }
-  .dialog-content > p {
-    font-size: 12px;
   }
 }
 @media (max-width: 360px) {
@@ -668,10 +602,6 @@
   }
   .character-wrap {
     translate: -50% 0;
-  }
-  .browser-mockup,
-  .phone-mockup {
-    transform: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -770,7 +700,7 @@
   }
   .degree-gpa > span {
     margin: 0;
-    font-size: 8px;
+    font-size: 11px;
   }
   .degree-gpa > strong {
     font-size: 30px;
@@ -786,7 +716,7 @@
     font-size: 27px;
   }
   .achievement-description {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 @media (max-width: 700px) {
@@ -798,7 +728,7 @@
   }
   .education .section-heading > p,
   .credentials .section-heading > p {
-    font-size: 10px;
+    font-size: 14px;
   }
   .degree-card {
     padding: 23px 19px;
@@ -813,11 +743,11 @@
   }
   .education-meta {
     gap: 11px;
-    font-size: 8px;
+    font-size: 14px;
     margin-bottom: 13px;
   }
   .education-status {
-    font-size: 8px !important;
+    font-size: 11px !important;
   }
   .degree-content h3 {
     font-size: 19px;
@@ -825,11 +755,11 @@
     letter-spacing: -0.6px;
   }
   .specialization {
-    font-size: 11px;
+    font-size: 14px;
     margin-top: 10px;
   }
   .institution-name {
-    font-size: 10px;
+    font-size: 14px;
   }
   .degree-gpa {
     grid-column: 1/-1;
@@ -837,7 +767,7 @@
     margin-top: 2px;
   }
   .degree-gpa > span {
-    font-size: 7px;
+    font-size: 11px;
   }
   .degree-gpa > strong {
     font-size: 29px;
@@ -852,7 +782,7 @@
     font-size: 19px;
   }
   .school-heading .micro-label {
-    font-size: 6px;
+    font-size: 11px;
   }
   .school-heading .institution-logo {
     width: 50px;
@@ -860,19 +790,19 @@
   }
   .qualification h4,
   .scholarship-record h4 {
-    font-size: 12px;
+    font-size: 14px;
   }
   .qualification-stream {
-    font-size: 9px;
+    font-size: 14px;
   }
   .exam-results > div {
     padding: 10px 12px;
   }
   .exam-results dt {
-    font-size: 10px;
+    font-size: 14px;
   }
   .exam-results dd {
-    font-size: 10px;
+    font-size: 14px;
   }
   .scholarship-score {
     max-width: 340px;
@@ -887,7 +817,7 @@
     object-position: center 48%;
   }
   .achievement-image-label {
-    font-size: 6px;
+    font-size: 14px;
     letter-spacing: 1px;
     left: 20px;
     bottom: 20px;
@@ -900,18 +830,18 @@
     letter-spacing: -1px;
   }
   .achievement-category {
-    font-size: 7px;
+    font-size: 14px;
     margin-bottom: 20px;
   }
   .achievement-recipient {
-    font-size: 11px;
+    font-size: 14px;
   }
   .achievement-description {
-    font-size: 11px;
+    font-size: 14px;
     margin-top: 19px;
   }
   .achievement-date {
-    font-size: 9px;
+    font-size: 14px;
   }
   .certificate-list-heading {
     gap: 15px;
@@ -925,7 +855,7 @@
     max-width: 230px;
   }
   .certificate-list-heading > span {
-    font-size: 6px;
+    font-size: 11px;
     letter-spacing: 1px;
   }
   .certificate-list-heading svg {
@@ -948,17 +878,17 @@
     flex-basis: calc(100% - 53px);
   }
   .certificate-number {
-    font-size: 7px;
+    font-size: 11px;
     letter-spacing: 0.5px;
     line-height: 1.8;
   }
   .certificate-description h4 {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.6;
     margin-top: 5px;
   }
   .course-status {
-    font-size: 8px;
+    font-size: 11px;
     padding: 7px 10px;
     margin-left: 53px;
   }

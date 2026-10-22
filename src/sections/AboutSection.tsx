@@ -1,20 +1,27 @@
-import { SectionLabel } from '../components/ui/SectionLabel';
+import { SectionHeading } from '../components/ui/SectionHeading';
+import { useTilt } from '../hooks/useTilt';
 import { ArrowUpRight } from 'lucide-react';
 import { profile } from '../data/profile';
 export function AboutSection() {
+  const portraitMotion = useTilt<HTMLDivElement>(8);
   return (
     <section className="about section-shell" id="about">
-      <div className="about-heading" data-reveal>
-        <SectionLabel number="01">A LITTLE INTRODUCTION</SectionLabel>
-        <h2>
-          Equal parts logic.
-          <br />
-          <span>Endless curiosity.</span>
-        </h2>
-      </div>
+      <SectionHeading
+        number="01"
+        label="A LITTLE INTRODUCTION"
+        className="section-heading about-heading"
+        artwork="about"
+        title={
+          <>
+            Equal parts logic.
+            <br />
+            <span>Endless curiosity.</span>
+          </>
+        }
+      />
       <div className="about-layout">
         <div className="portrait-block" data-reveal>
-          <div className="portrait-frame">
+          <div className="portrait-frame" {...portraitMotion}>
             <img src={profile.portrait} alt="Pasindu S Divyanjana" loading="lazy" />
           </div>
           <span className="portrait-orbit">✳</span>

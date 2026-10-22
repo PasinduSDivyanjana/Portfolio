@@ -51,9 +51,11 @@ describe('project browsing', () => {
       </>,
     );
     expect(
-      screen.getByRole('button', { name: 'Explore Jet Shipping' }).querySelector('.phone-mockup'),
+      screen
+        .getByRole('group', { name: 'Rotate Jet Shipping preview' })
+        .querySelector('.phone-mockup'),
     ).not.toBeNull();
-    expect(screen.getByRole('button', { name: 'Explore ZENVIA' })).toHaveTextContent(
+    expect(screen.getByRole('group', { name: 'Rotate ZENVIA preview' })).toHaveTextContent(
       'zenviavietnam.com',
     );
     expect(container.querySelectorAll('.phone-mockup')).toHaveLength(1);

@@ -7,9 +7,10 @@ interface Props {
   label: string;
   closeLabel: string;
   className: string;
+  header?: ReactNode;
   children: ReactNode;
 }
-export function Modal({ open, onClose, label, closeLabel, className, children }: Props) {
+export function Modal({ open, onClose, label, closeLabel, className, header, children }: Props) {
   const dialog = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     const element = dialog.current;
@@ -21,6 +22,11 @@ export function Modal({ open, onClose, label, closeLabel, className, children }:
       if (trigger?.isConnected) trigger.focus();
     };
   }, [open]);
+  const closeButton = (
+    <button className="dialog-close" aria-label={closeLabel} onClick={onClose}>
+      <X size={21} />
+    </button>
+  );
   return (
     <dialog
       ref={dialog}
@@ -36,9 +42,14 @@ export function Modal({ open, onClose, label, closeLabel, className, children }:
     >
       {open && (
         <>
-          <button className="dialog-close" aria-label={closeLabel} onClick={onClose}>
-            <X size={21} />
-          </button>
+          {header ? (
+            <div className="dialog-header">
+              {header}
+              {closeButton}
+            </div>
+          ) : (
+            closeButton
+          )}
           {children}
         </>
       )}

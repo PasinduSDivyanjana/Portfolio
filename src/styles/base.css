@@ -7,7 +7,7 @@
   --accent: #b998ec;
   --peach: #e9ba9b;
   --cyan: #8cd5de;
-  --muted: #98919f;
+  --muted: #cfc1db;
   --line: #ffffff16;
 }
 * {
@@ -82,14 +82,14 @@ em {
 .section-label {
   display: flex;
   gap: 18px;
-  font-size: 9px;
+  font-size: 11px;
   letter-spacing: 1.8px;
   line-height: 1.7;
-  color: #bfb4c9;
+  color: #dac8eb;
   margin-bottom: 26px;
 }
 .section-label > span {
-  color: #655c70;
+  color: #baa4ca;
 }
 h2 {
   font:
@@ -98,7 +98,7 @@ h2 {
   letter-spacing: -0.055em;
 }
 h2 > span {
-  color: #82748e;
+  color: #dac6f0;
 }
 .section-heading {
   display: flex;
@@ -108,7 +108,7 @@ h2 > span {
   margin-bottom: 65px;
 }
 .section-heading > p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--muted);
   padding-bottom: 7px;
@@ -120,11 +120,11 @@ h2 > span {
   gap: 12px;
   padding: 16px 14px;
   border-radius: 3px;
-  background: #17111e;
-  font-size: 12px;
+  background: #2a2038;
+  font-size: 14px;
 }
 .skill > svg {
-  color: #62506f;
+  color: #ba95d6;
   margin-left: auto;
 }
 .expanded .timeline-dot {

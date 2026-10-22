@@ -1,37 +1,112 @@
-import { ArrowUpRight } from 'lucide-react';
+import { useId, type CSSProperties } from 'react';
+import { ArrowUpRight, MoveHorizontal, RotateCcw } from 'lucide-react';
 import type { Project } from '../../types/portfolio';
+import { useDeviceRotation } from '../../hooks/useDeviceRotation';
+
 export function ProjectMockup({ project, onSelect }: { project: Project; onSelect: () => void }) {
+  const phone = project.preview.kind === 'phone';
+  const helpId = useId();
+  const { rotation, dragging, reset, controls } = useDeviceRotation({
+    yaw: 0,
+    pitch: 0,
+  });
+  const orientation = {
+    '--device-yaw': `${rotation.yaw}deg`,
+    '--device-pitch': `${rotation.pitch}deg`,
+  } as CSSProperties;
+
   return (
-    <button
-      className={'feature-stage ' + (project.preview.kind === 'phone' ? 'phone-stage' : '')}
-      aria-label={'Explore ' + project.name}
-      onClick={onSelect}
-    >
-      <span className="stage-grid" />
-      <span className="stage-orbit" />
-      <div className={project.preview.kind === 'phone' ? 'phone-mockup' : 'browser-mockup'}>
-        {project.preview.kind === 'browser' && (
-          <div className="browser-bar">
-            <i />
-            <i />
-            <i />
-            <span>{project.preview.kind === 'browser' ? project.preview.hostname : null}</span>
-            <ArrowUpRight size={10} />
+    <div className={'feature-stage ' + (phone ? 'phone-stage' : '')}>
+      <span className="stage-grid" aria-hidden="true" />
+      <span className="stage-orbit" aria-hidden="true" />
+      <span className="stage-label">{phone ? 'MOBILE EXPERIENCE' : 'DIGITAL EXPERIENCE'}</span>
+      <span className="rotation-badge" aria-hidden="true">
+        360° VIEW
+      </span>
+      <div
+        {...controls}
+        className="device-interaction"
+        role="group"
+        aria-label={'Rotate ' + project.name + ' preview'}
+        aria-describedby={helpId}
+        tabIndex={0}
+        data-dragging={dragging}
+      >
+        <div className="device-assembly">
+          <div
+            className={'device-model ' + (phone ? 'phone-mockup' : 'browser-mockup')}
+            style={orientation}
+          >
+            <div className="device-face device-front">
+              {project.preview.kind === 'browser' && (
+                <div className="browser-bar">
+                  <i />
+                  <i />
+                  <i />
+                  <span>{project.preview.hostname}</span>
+                  <ArrowUpRight size={10} />
+                </div>
+              )}
+              {phone && <div className="phone-island" />}
+              <img
+                src={'./Images/Projects/' + project.image}
+                alt={project.name + ' website or app preview'}
+                loading="lazy"
+                draggable={false}
+              />
+            </div>
+            <div className="device-face device-back" aria-hidden="true">
+              {phone ? (
+                <div className="device-cameras">
+                  <i />
+                  <i />
+                  <i />
+                </div>
+              ) : (
+                <div className="device-vents" />
+              )}
+              <span className="device-monogram">
+                p<span>.</span>
+              </span>
+              <span className="device-back-label">
+                {phone ? 'MOBILE' : 'STUDIO'} / {project.name}
+              </span>
+            </div>
+            <span className="device-edge device-edge-left" aria-hidden="true" />
+            <span className="device-edge device-edge-right" aria-hidden="true" />
+            <span className="device-edge device-edge-top" aria-hidden="true" />
+            <span className="device-edge device-edge-bottom" aria-hidden="true" />
+            {!phone && (
+              <div className="monitor-stand" aria-hidden="true">
+                <span />
+              </div>
+            )}
           </div>
-        )}
-        {project.preview.kind === 'phone' && <div className="phone-island" />}
-        <img
-          src={'./Images/Projects/' + project.image}
-          alt={project.name + ' website or app preview'}
-          loading="lazy"
-        />
+        </div>
       </div>
-      <span className="stage-note">
-        DESIGNED TO BE EXPERIENCED <ArrowUpRight size={15} />
-      </span>
-      <span className="stage-label">
-        {project.preview.kind === 'phone' ? 'MOBILE EXPERIENCE' : 'DIGITAL EXPERIENCE'}
-      </span>
-    </button>
+      <div className="device-toolbar">
+        <span className="rotation-hint" id={helpId}>
+          <MoveHorizontal size={15} aria-hidden="true" /> Drag to rotate
+          <span className="sr-only">
+            . Swipe horizontally on touch. Use arrow keys to rotate and Home to reset.
+          </span>
+        </span>
+        <div className="device-actions">
+          <button
+            type="button"
+            onClick={reset}
+            aria-label={'Reset ' + project.name + ' view'}
+            title="Reset view"
+          >
+            <RotateCcw size={15} />
+            <span>Reset</span>
+          </button>
+          <button type="button" onClick={onSelect} aria-label={'Explore ' + project.name}>
+            <span>Explore</span>
+            <ArrowUpRight size={16} />
+          </button>
+        </div>
+      </div>
+    </div>
   );
 }

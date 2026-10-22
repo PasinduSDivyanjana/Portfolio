@@ -7,6 +7,7 @@ export function ExperienceSection() {
   return (
     <section className="journey section-shell" id="journey">
       <SectionHeading
+        artwork="experience"
         number="04"
         label="PROFESSIONAL EXPERIENCE"
         title={
@@ -15,11 +16,6 @@ export function ExperienceSection() {
             <br />
             <span>puts ideas to work.</span>
           </>
-        }
-        decoration={
-          <span className="journey-asterisk" aria-hidden="true">
-            ✳
-          </span>
         }
       />
       <div className="timeline">

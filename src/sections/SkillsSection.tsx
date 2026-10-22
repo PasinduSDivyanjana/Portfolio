@@ -1,6 +1,7 @@
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { useState, type KeyboardEvent } from 'react';
-import { ArrowUpRight, Code2 } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
+import { SectionArtwork } from '../components/ui/SectionArtwork';
 import { skillGroups, skillMarks } from '../data/skills';
 type SkillTab = keyof typeof skillGroups;
 const tabs = Object.keys(skillGroups) as SkillTab[];
@@ -39,15 +40,9 @@ export function SkillsSection() {
         }
       />
       <div className="toolkit-layout">
-        <div className="toolkit-orb" aria-hidden="true">
-          <div className="orb-ring ring-a" />
-          <div className="orb-ring ring-b" />
-          <div className="orb-core">
-            <Code2 size={62} strokeWidth={1} />
-          </div>
+        <div className="toolkit-orb">
+          <SectionArtwork kind="skills" className="toolkit-artwork" />
           <span className="orb-tag">IDEA → CODE → EXPERIENCE</span>
-          <span className="orb-satellite satellite-one">{'{ }'}</span>
-          <span className="orb-satellite satellite-two">&lt;/&gt;</span>
         </div>
         <div className="toolkit-content">
           <div
