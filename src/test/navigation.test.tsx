@@ -22,10 +22,26 @@ describe('keyboard and menu navigation', () => {
   it('supports arrow, Home, and End keys while moving focus and updating tab content', async () => {
     const user = userEvent.setup();
     render(<SkillsSection />);
+    expect(document.querySelector('[data-scene="skills"]')).toHaveAttribute(
+      'data-technology-group',
+      'Web development',
+    );
+    expect(document.querySelector('.skill-symbol img')).toHaveAttribute(
+      'src',
+      './Images/Technologies/react.svg',
+    );
     await user.click(screen.getByRole('tab', { name: 'Web development' }));
     await user.keyboard('{ArrowRight}');
     expect(screen.getByRole('tab', { name: 'Mobile & backend' })).toHaveFocus();
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Kotlin');
+    expect(document.querySelector('[data-scene="skills"]')).toHaveAttribute(
+      'data-technology-group',
+      'Mobile & backend',
+    );
+    expect(document.querySelector('.skill-symbol img')).toHaveAttribute(
+      'src',
+      './Images/Technologies/kotlin.svg',
+    );
     await user.keyboard('{ArrowRight}');
     expect(screen.getByRole('tab', { name: 'Web development' })).toHaveFocus();
     await user.keyboard('{End}');

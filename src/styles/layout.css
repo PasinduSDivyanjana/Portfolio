@@ -16,14 +16,14 @@
   align-items: center;
   gap: 12px;
 }
-.brand-symbol {
-  font: 800 43px/1 Manrope;
-  letter-spacing: -5px;
+.brand-mark {
+  display: block;
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
-.brand-symbol > span {
-  color: var(--accent);
-}
-.brand > span:last-child {
+.brand-wordmark {
   font-size: 9px;
   letter-spacing: 1.8px;
   font-weight: 650;
@@ -73,11 +73,20 @@
   gap: 20px;
 }
 .footer-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font: 700 26px Manrope;
   letter-spacing: -1.5px;
 }
-.footer-name > span {
-  color: var(--peach);
+.footer-name .brand-mark {
+  width: 40px;
+  height: 40px;
+}
+.footer-wordmark {
+  font-size: clamp(15px, 1.8vw, 22px);
+  letter-spacing: -0.5px;
+  white-space: nowrap;
 }
 .site-footer > span {
   font-size: 8px;

@@ -94,10 +94,11 @@
     height: 78px;
     padding: 0 6%;
   }
-  .brand-symbol {
-    font-size: 36px;
+  .brand-mark {
+    width: 40px;
+    height: 40px;
   }
-  .brand > span:last-child {
+  .brand-wordmark {
     font-size: 7px;
   }
   .brand small {

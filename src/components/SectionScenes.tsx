@@ -9,6 +9,7 @@ import { sceneKinds, type SceneKind } from '../types/scenes';
 import { artworkViewport } from '../lib/graphics/artworkViewport';
 import { createContentAtmosphere } from '../lib/graphics/contentAtmosphere';
 import { acceptsArtworkPointer, createArtworkSurface } from '../lib/graphics/artworkSurface';
+import { getSkillTechnologies } from '../data/skills';
 
 const localArtworkQuery = '(max-width: 700px), (pointer: coarse)';
 
@@ -93,10 +94,12 @@ export default function SectionScenes() {
         if (!sceneKinds.includes(kind)) continue;
         let sculpture = sculptures.get(kind);
         if (!sculpture) {
-          sculpture = createSectionSculpture(kind, environment.texture);
+          sculpture = createSectionSculpture(kind, environment.texture, schedule);
           sculptures.set(kind, sculpture);
         }
         sculpture.camera.aspect = rect.width / rect.height;
+        if (kind === 'skills')
+          sculpture.setTechnologies?.(getSkillTechnologies(element.dataset.technologyGroup));
         sculpture.camera.updateProjectionMatrix();
         sculpture.update((now - start) / 1000, pointer, media.matches);
         if (localArtwork) {
@@ -169,6 +172,13 @@ export default function SectionScenes() {
       { rootMargin: '40px' },
     );
     slots.forEach((element) => observer.observe(element));
+    const artworkChanges = new MutationObserver(schedule);
+    slots.forEach((element) =>
+      artworkChanges.observe(element, {
+        attributes: true,
+        attributeFilter: ['data-technology-group'],
+      }),
+    );
     const pageResize = new ResizeObserver(resize);
     pageResize.observe(document.documentElement);
     const lost = (event: Event) => {
@@ -192,6 +202,7 @@ export default function SectionScenes() {
       disposed = true;
       if (frame !== undefined) cancelAnimationFrame(frame);
       observer.disconnect();
+      artworkChanges.disconnect();
       pageResize.disconnect();
       removeEventListener('resize', resize);
       removeEventListener('scroll', scroll);

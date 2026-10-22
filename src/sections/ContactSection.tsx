@@ -3,6 +3,7 @@ import { ArrowUpRight, Copy, Check } from 'lucide-react';
 import { profile } from '../data/profile';
 import { useClipboard } from '../hooks/useClipboard';
 import { SectionArtwork } from '../components/ui/SectionArtwork';
+import { contactChannels } from '../data/contactChannels';
 export function ContactSection() {
   const { copied, copy } = useClipboard();
   const copyEmail = async () => {
@@ -12,7 +13,23 @@ export function ContactSection() {
     <section className="contact section-shell" id="contact">
       <div className="contact-glow" />
       <SectionLabel number="07">GOOD THINGS START WITH A CONVERSATION</SectionLabel>
-      <SectionArtwork kind="contact" className="contact-artwork" />
+      <div className="conversation-network">
+        <SectionArtwork kind="contact" className="contact-artwork" />
+        <nav className="conversation-channels" aria-label="Conversation channels">
+          {contactChannels.map((channel) => (
+            <a
+              key={channel.id}
+              href={channel.href}
+              target={channel.id === 'email' ? undefined : '_blank'}
+              rel={channel.id === 'email' ? undefined : 'noreferrer'}
+            >
+              <img src={channel.icons[0]} alt="" width={18} height={18} />
+              <span>{channel.name}</span>
+              <ArrowUpRight size={12} />
+            </a>
+          ))}
+        </nav>
+      </div>
       <h2>
         Have an idea?
         <br />
@@ -30,17 +47,6 @@ export function ContactSection() {
         {copied ? 'Copied to clipboard' : profile.email}
         {copied ? <Check size={15} /> : <Copy size={15} />}
       </button>
-      <div className="contact-links">
-        <a href={profile.github} target="_blank" rel="noreferrer">
-          GitHub <ArrowUpRight size={14} />
-        </a>
-        <a href={profile.linkedIn} target="_blank" rel="noreferrer">
-          LinkedIn <ArrowUpRight size={14} />
-        </a>
-        <a href={'mailto:' + profile.email}>
-          Email <ArrowUpRight size={14} />
-        </a>
-      </div>
     </section>
   );
 }

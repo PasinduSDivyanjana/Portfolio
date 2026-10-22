@@ -2,8 +2,8 @@ import { SectionHeading } from '../components/ui/SectionHeading';
 import { useState, type KeyboardEvent } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { SectionArtwork } from '../components/ui/SectionArtwork';
-import { skillGroups, skillMarks } from '../data/skills';
-type SkillTab = keyof typeof skillGroups;
+import { skillGroups, type SkillTab } from '../data/skills';
+import { TechnologyLogo } from '../components/ui/TechnologyLogo';
 const tabs = Object.keys(skillGroups) as SkillTab[];
 export function SkillsSection() {
   const [skillTab, setSkillTab] = useState<SkillTab>(tabs[0]);
@@ -41,7 +41,7 @@ export function SkillsSection() {
       />
       <div className="toolkit-layout">
         <div className="toolkit-orb">
-          <SectionArtwork kind="skills" className="toolkit-artwork" />
+          <SectionArtwork kind="skills" className="toolkit-artwork" technologyGroup={skillTab} />
           <span className="orb-tag">IDEA → CODE → EXPERIENCE</span>
         </div>
         <div className="toolkit-content">
@@ -73,7 +73,9 @@ export function SkillsSection() {
           >
             {skillGroups[skillTab].map((skill) => (
               <div className="skill" key={skill}>
-                <span className="skill-symbol">{skillMarks[skill]}</span>
+                <span className="skill-symbol">
+                  <TechnologyLogo name={skill} />
+                </span>
                 <span>{skill}</span>
                 <ArrowUpRight size={14} />
               </div>

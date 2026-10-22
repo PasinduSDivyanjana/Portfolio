@@ -1,12 +1,17 @@
 import * as THREE from 'three';
 import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import type { SceneKind } from '../../types/scenes';
+import { createTechnologyNetwork } from './technologyNetwork';
+import { addStudioLights } from './studioLighting';
+import type { Technology } from '../../data/skills';
+import { contactChannels } from '../../data/contactChannels';
 
 export interface Sculpture {
   scene: THREE.Scene;
   camera: THREE.PerspectiveCamera;
   update: (time: number, pointer: THREE.Vector2, reduced: boolean) => void;
   dispose: () => void;
+  setTechnologies?: (technologies: readonly Technology[]) => void;
 }
 
 export function createStudioEnvironment(renderer: THREE.WebGLRenderer) {
@@ -38,7 +43,13 @@ export function createStudioEnvironment(renderer: THREE.WebGLRenderer) {
   return target;
 }
 
-export function createSectionSculpture(kind: SceneKind, environment: THREE.Texture): Sculpture {
+export function createSectionSculpture(
+  kind: SceneKind,
+  environment: THREE.Texture,
+  onChange?: () => void,
+): Sculpture {
+  if (kind === 'skills') return createTechnologyNetwork(environment, onChange);
+  if (kind === 'contact') return createTechnologyNetwork(environment, onChange, contactChannels);
   const scene = new THREE.Scene();
   scene.environment = environment;
   const camera = new THREE.PerspectiveCamera(36, 1, 0.1, 30);
@@ -122,15 +133,6 @@ export function createSectionSculpture(kind: SceneKind, environment: THREE.Textu
       }
     }
     object.rotation.z = -0.13;
-  } else if (kind === 'skills') {
-    mesh(new THREE.IcosahedronGeometry(0.66, 1), pearl);
-    for (let i = 0; i < 3; i++) {
-      const ring = orbit(1.48, i === 0 ? cyan : chrome);
-      ring.rotation.set(i * 0.9, 0.45 + i * 0.7, i * 0.45);
-      animated.push(ring);
-      const bead = mesh(new THREE.SphereGeometry(0.13, 18, 14), i === 0 ? gold : cyan, ring);
-      bead.position.x = 1.48;
-    }
   } else if (kind === 'experience') {
     const points = [];
     for (let i = 0; i < 100; i++) {
@@ -192,24 +194,8 @@ export function createSectionSculpture(kind: SceneKind, environment: THREE.Textu
     ring.position.z = -0.5;
     ring.rotation.x = 0.3;
     animated.push(ring);
-  } else {
-    mesh(new THREE.SphereGeometry(0.83, 40, 24), pearl);
-    const ring = orbit(1.5, chrome);
-    ring.rotation.set(0.8, 0.4, 0);
-    animated.push(ring);
-    const ring2 = orbit(1.82, cyan);
-    ring2.rotation.set(-0.5, 0.5, -0.45);
-    animated.push(ring2);
-    const bead = mesh(new THREE.SphereGeometry(0.15, 18, 14), gold, ring2);
-    bead.position.x = 1.82;
   }
-  scene.add(new THREE.HemisphereLight('#fff3ff', '#5c4b80', 2.2));
-  const key = new THREE.PointLight('#e6d0ff', 30);
-  key.position.set(3, 3, 4);
-  scene.add(key);
-  const fill = new THREE.PointLight('#96efff', 18);
-  fill.position.set(-3, -1, 3);
-  scene.add(fill);
+  addStudioLights(scene);
   const rotation = object.rotation.clone();
   return {
     scene,

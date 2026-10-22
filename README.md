@@ -20,6 +20,8 @@ The production output is `dist/`. The existing GitHub Pages workflow builds and 
 
 The application uses TypeScript in strict mode. `src/Portfolio.tsx` composes the page; each section owns its local interactions. Assets used by the React app live in `public/Images/`.
 
+The owner-selected connected PSD logo is traced as a transparent SVG in `public/branding/psd-connected.svg`. The header and footer use the shared `BrandMark` component, and the browser favicon references the same asset. The original approved concept remains in `output/branding/pasindu-psd-connected-logo-v2.png`.
+
 ## Source structure
 
 - `src/sections/`: hero, about, projects, skills, experience, education, certifications, and contact.
@@ -35,7 +37,11 @@ The application uses TypeScript in strict mode. `src/Portfolio.tsx` composes the
 
 Project presentation uses each project's `preview` metadata and `featured` flag, so changing the project order does not switch its mockup type. Stable project IDs serve as list keys. Modal behavior is shared by project details and the achievement photograph. Course completion is derived from a single status field.
 
+The tools section uses a connected 3D network with six orbiting logo nodes around a reflective core. The selected technology tab drives both the cards and the network through shared metadata in `src/data/skills.ts`. HTML and CSS share a node with both logos. Billboard faces keep logos readable as nodes move through depth; reduced motion freezes the layout. Logo textures are cached and disposed with the scene. Original SVGs from [Devicon v2.16.0](https://github.com/devicons/devicon/tree/v2.16.0) are hosted in `public/Images/Technologies/` with their MIT license. The mobile renderer continues to use section-owned canvases for stable scrolling.
+
 ## Coding standards and verification
+
+The contact section reuses the logo network with three conversation nodes: GitHub, Email, and LinkedIn. `src/data/contactChannels.ts` supplies both the scene and the accessible links underneath it, using the owner's existing destinations. WhatsApp and Telegram are omitted at the owner's request. Contact SVGs are hosted in `public/Images/Contact/` with their source and license recorded there.
 
 ```sh
 npm run check

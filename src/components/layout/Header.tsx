@@ -1,16 +1,15 @@
 import { useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { navigation } from '../../data/navigation';
+import { BrandMark } from '../ui/BrandMark';
 export function Header() {
   const [menu, setMenu] = useState(false);
   return (
     <header className="site-header">
       <a className="brand" href="#home" aria-label="Pasindu home">
-        <span className="brand-symbol">
-          p<span>.</span>
-        </span>
-        <span>
-          PASINDU
+        <BrandMark />
+        <span className="brand-wordmark">
+          PASINDU S
           <br />
           <small>DIVYANJANA</small>
         </span>

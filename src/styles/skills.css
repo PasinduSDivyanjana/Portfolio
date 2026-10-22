@@ -57,6 +57,31 @@
   color: var(--accent);
   width: 30px;
 }
+.technology-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  width: 34px;
+  height: 34px;
+  padding: 5px;
+  border-radius: 9px;
+  background: #f3eef9;
+  box-shadow: 0 3px 10px #08041130;
+}
+.technology-logo img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.technology-logo-pair img {
+  width: 14px;
+  height: 20px;
+}
+.skill-symbol:has(.technology-logo) {
+  width: 34px;
+  flex-shrink: 0;
+}
 .toolkit-note {
   font-size: 14px;
   line-height: 1.8;
