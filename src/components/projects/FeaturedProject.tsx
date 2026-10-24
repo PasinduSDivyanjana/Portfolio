@@ -8,14 +8,14 @@ export function FeaturedProject({ project, onSelect }: { project: Project; onSel
       <div className="feature-copy">
         <span className="project-number">
           {project.displayNumber}
-          <span>/ SELECTED PROJECT</span>
+          <span>/ {project.flagship ? 'FLAGSHIP PROJECT' : 'SELECTED PROJECT'}</span>
         </span>
         <span className="micro-label">{project.type}</span>
         <h3>{project.name}</h3>
         <p>{project.text}</p>
         <TechTags items={project.tech} />
         <button className="round-link" onClick={onSelect}>
-          <span>Explore project</span>
+          <span>{project.highlights ? 'Explore full project' : 'Explore project'}</span>
           <span>
             <ArrowUpRight size={20} />
           </span>

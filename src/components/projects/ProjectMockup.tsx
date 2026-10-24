@@ -2,6 +2,7 @@ import { useId, type CSSProperties } from 'react';
 import { ArrowUpRight, MoveHorizontal, RotateCcw } from 'lucide-react';
 import type { Project } from '../../types/portfolio';
 import { useDeviceRotation } from '../../hooks/useDeviceRotation';
+import { BrandMark } from '../ui/BrandMark';
 
 export function ProjectMockup({ project, onSelect }: { project: Project; onSelect: () => void }) {
   const phone = project.preview.kind === 'phone';
@@ -13,6 +14,9 @@ export function ProjectMockup({ project, onSelect }: { project: Project; onSelec
   const orientation = {
     '--device-yaw': `${rotation.yaw}deg`,
     '--device-pitch': `${rotation.pitch}deg`,
+    ...(project.preview.kind === 'phone' && project.preview.screenAspectRatio
+      ? { '--phone-screen-aspect': project.preview.screenAspectRatio }
+      : {}),
   } as CSSProperties;
 
   return (
@@ -47,10 +51,17 @@ export function ProjectMockup({ project, onSelect }: { project: Project; onSelec
                   <ArrowUpRight size={10} />
                 </div>
               )}
-              {phone && <div className="phone-island" />}
+              {project.preview.kind === 'phone' && project.preview.cameraCutout !== false && (
+                <div className="phone-island" />
+              )}
               <img
                 src={'./Images/Projects/' + project.image}
                 alt={project.name + ' website or app preview'}
+                style={
+                  project.preview.kind === 'phone'
+                    ? { objectFit: project.preview.imageFit }
+                    : undefined
+                }
                 loading="lazy"
                 draggable={false}
               />
@@ -65,9 +76,7 @@ export function ProjectMockup({ project, onSelect }: { project: Project; onSelec
               ) : (
                 <div className="device-vents" />
               )}
-              <span className="device-monogram">
-                p<span>.</span>
-              </span>
+              <BrandMark />
               <span className="device-back-label">
                 {phone ? 'MOBILE' : 'STUDIO'} / {project.name}
               </span>

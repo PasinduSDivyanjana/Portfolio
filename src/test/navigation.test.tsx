@@ -5,6 +5,24 @@ import { Header } from '../components/layout/Header';
 import { SkillsSection } from '../sections/SkillsSection';
 
 describe('keyboard and menu navigation', () => {
+  it('focuses the opened menu and dismisses it when focus leaves the header', async () => {
+    const user = userEvent.setup();
+    render(
+      <>
+        <Header />
+        <button>Page content</button>
+      </>,
+    );
+    await user.click(screen.getByRole('button', { name: 'Open menu' }));
+    expect(screen.getByRole('link', { name: 'About' })).toHaveFocus();
+    await user.tab();
+    expect(screen.getByRole('link', { name: 'Selected work' })).toHaveFocus();
+    await user.click(screen.getByRole('button', { name: 'Page content' }));
+    expect(screen.getByRole('button', { name: 'Open menu' })).toHaveAttribute(
+      'aria-expanded',
+      'false',
+    );
+  });
   it('closes the mobile menu after selecting education', async () => {
     const user = userEvent.setup();
     render(<Header />);
@@ -32,20 +50,30 @@ describe('keyboard and menu navigation', () => {
     );
     await user.click(screen.getByRole('tab', { name: 'Web development' }));
     await user.keyboard('{ArrowRight}');
-    expect(screen.getByRole('tab', { name: 'Mobile & backend' })).toHaveFocus();
+    expect(screen.getByRole('tab', { name: 'Mobile development' })).toHaveFocus();
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Kotlin');
     expect(document.querySelector('[data-scene="skills"]')).toHaveAttribute(
       'data-technology-group',
-      'Mobile & backend',
+      'Mobile development',
     );
     expect(document.querySelector('.skill-symbol img')).toHaveAttribute(
       'src',
-      './Images/Technologies/kotlin.svg',
+      './Images/Technologies/react.svg',
     );
     await user.keyboard('{ArrowRight}');
-    expect(screen.getByRole('tab', { name: 'Web development' })).toHaveFocus();
+    expect(screen.getByRole('tab', { name: 'Backend & databases' })).toHaveFocus();
+    expect(screen.getByRole('tabpanel')).toHaveTextContent('Firebase');
+    expect(document.querySelector('[data-scene="skills"]')).toHaveAttribute(
+      'data-technology-group',
+      'Backend & databases',
+    );
+    for (const name of ['Tools & deployment', 'Web development']) {
+      await user.keyboard('{ArrowRight}');
+      expect(screen.getByRole('tab', { name })).toHaveFocus();
+      expect(screen.getByRole('tabpanel', { name })).toBeVisible();
+    }
     await user.keyboard('{End}');
-    expect(screen.getByRole('tab', { name: 'Mobile & backend' })).toHaveAttribute(
+    expect(screen.getByRole('tab', { name: 'Tools & deployment' })).toHaveAttribute(
       'aria-selected',
       'true',
     );

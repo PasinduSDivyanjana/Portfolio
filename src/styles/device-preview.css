@@ -55,8 +55,13 @@
 .phone-mockup {
   --device-depth: 14px;
   --device-radius: 28px;
-  width: 185px;
-  height: 360px;
+  --phone-height: 360px;
+  --phone-border: 6px;
+  width: calc(
+    (var(--phone-height) - var(--phone-border) * 2) * var(--phone-screen-aspect, 0.4971264368) +
+      var(--phone-border) * 2
+  );
+  height: var(--phone-height);
 }
 .device-face {
   position: absolute;
@@ -82,7 +87,7 @@
   object-position: top;
 }
 .phone-mockup .device-front {
-  border-width: 6px;
+  border-width: var(--phone-border);
 }
 .phone-mockup .device-front > img {
   height: 100%;
@@ -104,16 +109,11 @@
 .phone-mockup .device-back {
   background: linear-gradient(135deg, #72929d, #344f60 52%, #192b39);
 }
-.device-monogram {
-  font:
-    600 3.4375rem Manrope,
-    sans-serif;
-  letter-spacing: -5px;
-  color: #edf2ffb3;
-  text-shadow: 0 1px 1px #0006;
-}
-.device-monogram > span {
-  color: #bfe9ee;
+.device-back > .brand-mark {
+  width: clamp(44px, 24%, 84px);
+  height: auto;
+  opacity: 0.72;
+  filter: grayscale(1) brightness(1.25) drop-shadow(0 1px 2px #0005);
 }
 .device-back-label {
   position: absolute;
@@ -278,13 +278,11 @@
     width: min(100%, 340px);
   }
   .phone-mockup {
-    width: 147px;
-    height: 285px;
+    --phone-height: 285px;
+    --phone-border: 5px;
+    --phone-screen-aspect: 0.4981818182;
     --device-radius: 24px;
     --device-depth: 12px;
-  }
-  .phone-mockup .device-front {
-    border-width: 5px;
   }
   .monitor-stand {
     height: 52px;

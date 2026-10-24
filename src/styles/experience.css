@@ -36,12 +36,39 @@
 }
 .timeline-tag {
   width: 21%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
   font-size: var(--text-caption);
   letter-spacing: 1.4px;
   color: #cfb1e6;
 }
+.company-logo {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid #e9e3f0;
+  border-radius: 14px;
+  background: #fff;
+}
+.company-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.company-logo-jet-shipping img {
+  width: 120%;
+  height: 120%;
+  max-width: none;
+}
 .timeline-title {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -58,6 +85,7 @@
 .timeline-toggle {
   width: 32px;
   height: 32px;
+  flex-shrink: 0;
   display: grid;
   place-items: center;
   border: 1px solid #6b527e60;
@@ -72,4 +100,27 @@
   font-size: var(--text-body);
   line-height: 1.9;
   max-width: 600px;
+}
+.timeline-item > div > .timeline-period {
+  margin-bottom: 6px;
+  color: #e0ccef;
+  font-size: var(--text-small);
+}
+.timeline-item > div > .timeline-completion {
+  margin-bottom: 16px;
+  color: var(--peach);
+  font-size: var(--text-small);
+}
+@media (min-width: 701px) and (max-width: 1100px) {
+  .timeline-tag {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+@media (max-width: 700px) {
+  .company-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
 }

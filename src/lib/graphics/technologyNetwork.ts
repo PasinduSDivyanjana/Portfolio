@@ -49,7 +49,8 @@ export function createTechnologyNetwork(
     rail.rotation.set(ring * 0.5, ring * 0.4, ring * 0.7);
     scene.add(rail);
   }
-  const positions = new THREE.BufferAttribute(new Float32Array(initialNodes.length * 2 * 3), 3);
+  const capacity = 7;
+  const positions = new THREE.BufferAttribute(new Float32Array(capacity * 2 * 3), 3);
   const connections = new THREE.LineSegments(
     new THREE.BufferGeometry(),
     new THREE.LineBasicMaterial({ color: '#c7a6e4', transparent: true, opacity: 0.3 }),
@@ -76,7 +77,7 @@ export function createTechnologyNetwork(
     textures.set(url, loaded);
     return loaded;
   };
-  const nodes = Array.from({ length: initialNodes.length }, (_, index) => {
+  const createNode = (index: number) => {
     const group = new THREE.Group();
     group.name = 'technology-node-' + index;
     const border = new THREE.MeshStandardMaterial({
@@ -97,14 +98,22 @@ export function createTechnologyNetwork(
     });
     scene.add(group);
     return { group, border, logos };
-  });
-  let selected: readonly Technology[] | undefined;
-  const setTechnologies = (technologies: readonly Technology[]) => {
-    if (technologies === selected) return;
-    if (technologies.length !== nodes.length) return;
-    selected = technologies;
+  };
+  const nodes = Array.from({ length: Math.min(capacity, initialNodes.length) }, (_, index) =>
+    createNode(index),
+  );
+  let selected: readonly Technology[] = [];
+  let displayedOffset = -1;
+  let cycleStart: number | null = null;
+  const displayTechnologies = (offset: number) => {
+    if (offset === displayedOffset) return;
+    displayedOffset = offset;
+    const visibleCount = Math.min(selected.length, nodes.length);
+    connections.geometry.setDrawRange(0, visibleCount * 2);
     nodes.forEach((node, index) => {
-      const technology = technologies[index];
+      node.group.visible = index < visibleCount;
+      if (!node.group.visible) return;
+      const technology = selected[(offset + index) % selected.length];
       node.group.userData.technology = technology.name;
       node.border.color.set(technology.color);
       node.border.emissive.set(technology.color);
@@ -120,17 +129,35 @@ export function createTechnologyNetwork(
       });
     });
   };
+  const setTechnologies = (technologies: readonly Technology[]) => {
+    if (technologies === selected) return;
+    while (nodes.length < Math.min(capacity, technologies.length)) {
+      nodes.push(createNode(nodes.length));
+    }
+    selected = technologies;
+    displayedOffset = -1;
+    cycleStart = null;
+    displayTechnologies(0);
+  };
   setTechnologies(initialNodes);
   return {
     scene,
     camera,
     setTechnologies,
     update(time, pointer, reduced) {
+      cycleStart ??= time;
+      const offset =
+        !reduced && selected.length > nodes.length
+          ? (Math.floor((time - cycleStart) / 6) * nodes.length) % selected.length
+          : 0;
+      displayTechnologies(offset);
       const t = reduced ? 0 : time;
       core.rotation.set(t * 0.08, t * 0.12, 0.15);
       halo.rotation.z = t * 0.1;
       nodes.forEach((node, index) => {
-        const angle = (index * Math.PI * 2) / nodes.length + Math.PI / 6 + t * 0.075;
+        if (!node.group.visible) return;
+        const angle =
+          (index * Math.PI * 2) / Math.min(selected.length, nodes.length) + Math.PI / 6 + t * 0.075;
         const x = Math.cos(angle) * 1.96 + (reduced ? 0 : pointer.x * 0.12);
         const y = Math.sin(angle) * 1.65 + (reduced ? 0 : pointer.y * 0.08);
         const z = Math.sin(angle * 2) * 0.45;

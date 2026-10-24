@@ -3,7 +3,7 @@ import { acceptsArtworkPointer, createArtworkSurface } from '../lib/graphics/art
 
 afterEach(() => vi.restoreAllMocks());
 
-describe('scroll-stable mobile artwork', () => {
+describe('scroll-stable section artwork', () => {
   it('keeps a section-owned canvas in place and copies only the local WebGL image', () => {
     const context = { clearRect: vi.fn(), drawImage: vi.fn() };
     vi.spyOn(HTMLCanvasElement.prototype, 'getContext').mockReturnValue(

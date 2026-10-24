@@ -13,7 +13,17 @@ export interface Project {
   displayNumber: string;
   color: string;
   featured: boolean;
-  preview: { kind: 'phone' } | { kind: 'browser'; hostname: string };
+  flagship?: boolean;
+  highlightsTitle?: string;
+  highlights?: { title: string; text: string }[];
+  preview:
+    | {
+        kind: 'phone';
+        imageFit?: 'contain' | 'cover';
+        screenAspectRatio?: number;
+        cameraCutout?: boolean;
+      }
+    | { kind: 'browser'; hostname: string };
 }
 
 export interface Qualification {

@@ -131,6 +131,13 @@ main > .credentials {
 .feature-blue .feature-stage {
   background: radial-gradient(ellipse at 50% 40%, #85d6e65c, transparent 72%), #213d48;
 }
+.feature-violet .feature-stage {
+  background: radial-gradient(ellipse at 50% 40%, #b998ec50, transparent 72%), #30243f;
+}
+.feature-violet .project-number,
+.feature-violet .stage-label {
+  color: #ddc8fa;
+}
 .stage-grid {
   opacity: 1;
   background-size: 40px 40px;
@@ -165,7 +172,8 @@ main > .credentials {
   background: #40392b;
 }
 .toolkit-layout {
-  gap: 8%;
+  column-gap: 8%;
+  row-gap: 36px;
 }
 .toolkit-orb {
   height: 380px;
@@ -488,7 +496,7 @@ main > .credentials {
     gap: 10px;
   }
   .skill-tabs {
-    gap: 22px;
+    gap: 8px;
   }
   .skill-tabs button {
     font-size: var(--text-small);

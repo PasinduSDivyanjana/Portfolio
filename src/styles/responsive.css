@@ -91,6 +91,7 @@
 }
 @media (max-width: 700px) {
   .site-header {
+    --site-header-height: 78px;
     height: 78px;
     padding: 0 6%;
   }
@@ -466,7 +467,7 @@
   }
   .archive-image {
     height: 137px;
-    padding: 18px 12px 0;
+    padding: 12px;
   }
   .archive-image > span {
     width: 25px;
@@ -503,7 +504,7 @@
     font-size: var(--text-caption);
   }
   .skill-tabs {
-    gap: 27px;
+    gap: 8px;
     margin-bottom: 20px;
   }
   .skill-tabs button {

@@ -1,13 +1,20 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { navigation } from '../../data/navigation';
 import { BrandMark } from '../ui/BrandMark';
 export function Header() {
   const [menu, setMenu] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
+  const navigationRef = useRef<HTMLElement>(null);
+  useEffect(() => {
+    if (menu) navigationRef.current?.querySelector('a')?.focus();
+  }, [menu]);
   return (
     <header
-      className="site-header"
+      className={menu ? 'site-header menu-open' : 'site-header'}
+      onBlur={(event) => {
+        if (menu && !event.currentTarget.contains(event.relatedTarget)) setMenu(false);
+      }}
       onKeyDown={(event) => {
         if (menu && event.key === 'Escape') {
           event.preventDefault();
@@ -25,6 +32,7 @@ export function Header() {
         </span>
       </a>
       <nav
+        ref={navigationRef}
         id="main-navigation"
         className={menu ? 'top-nav open' : 'top-nav'}
         aria-label="Main navigation"

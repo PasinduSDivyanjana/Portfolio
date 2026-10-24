@@ -90,6 +90,20 @@ export function ProjectDialog({
               </a>
             )}
           </div>
+          {project.highlights && (
+            <section className="project-highlights" aria-label="Project capabilities">
+              <span className="dialog-detail-label">BEHIND THE BUILD</span>
+              <h3>{project.highlightsTitle ?? 'Inside the project.'}</h3>
+              <div className="project-highlights-grid">
+                {project.highlights.map((highlight) => (
+                  <div className="project-highlight" key={highlight.title}>
+                    <h4>{highlight.title}</h4>
+                    <p>{highlight.text}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </article>
       )}
     </Modal>

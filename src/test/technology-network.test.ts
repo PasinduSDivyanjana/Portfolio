@@ -6,23 +6,36 @@ import { getSkillTechnologies, skillGroups } from '../data/skills';
 afterEach(() => vi.restoreAllMocks());
 
 describe('technology logo network', () => {
-  it('keeps six connected nodes synchronized with the selected category and caches textures', () => {
+  it('grows from six web nodes to seven backend nodes and shows every selected technology together', () => {
     const load = vi.spyOn(TextureLoader.prototype, 'load').mockImplementation(() => new Texture());
     const environment = new Texture();
     const network = createTechnologyNetwork(environment);
     const nodes = () =>
-      network.scene.children.filter((object) => object.name.startsWith('technology-node-'));
+      network.scene.children.filter(
+        (object) => object.name.startsWith('technology-node-') && object.visible,
+      );
     expect(nodes()).toHaveLength(6);
-    expect(nodes().map((node) => node.userData.technology)).toEqual(skillGroups['Web development']);
-    expect(load).toHaveBeenCalledTimes(7); // HTML and CSS share a node, with one logo each.
-    network.setTechnologies?.(getSkillTechnologies('Mobile & backend'));
-    expect(nodes().map((node) => node.userData.technology)).toEqual(
-      skillGroups['Mobile & backend'],
+    for (const [group, names] of Object.entries(skillGroups)) {
+      network.setTechnologies?.(getSkillTechnologies(group));
+      for (const reduced of [false, true]) {
+        network.update(0, new Vector2(), reduced);
+        network.update(60, new Vector2(), reduced);
+        expect(nodes().map((node) => node.userData.technology)).toEqual(names);
+      }
+    }
+    const uniqueIcons = new Set(
+      Object.keys(skillGroups).flatMap((group) =>
+        getSkillTechnologies(group).flatMap((item) => item.icons),
+      ),
     );
-    expect(load).toHaveBeenCalledTimes(13);
-    network.setTechnologies?.(getSkillTechnologies('Mobile & backend'));
+    expect(load).toHaveBeenCalledTimes(uniqueIcons.size);
     network.setTechnologies?.(getSkillTechnologies('Web development'));
-    expect(load).toHaveBeenCalledTimes(13);
+    network.update(0, new Vector2(), true);
+    network.update(100, new Vector2(), true);
+    expect(nodes().map((node) => node.userData.technology)).toEqual(
+      skillGroups['Web development'].slice(0, 6),
+    );
+    expect(load).toHaveBeenCalledTimes(uniqueIcons.size);
     network.dispose();
     environment.dispose();
   });

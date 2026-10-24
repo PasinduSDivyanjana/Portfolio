@@ -11,9 +11,10 @@ import { createContentAtmosphere } from '../lib/graphics/contentAtmosphere';
 import { acceptsArtworkPointer, createArtworkSurface } from '../lib/graphics/artworkSurface';
 import { getSkillTechnologies } from '../data/skills';
 
-const localArtworkQuery = '(max-width: 700px), (pointer: coarse)';
+// Short windows also need a buffer tall enough to draw an entire artwork before copying it.
+const localArtworkQuery = '(max-width: 700px), (max-height: 380px), (pointer: coarse)';
 
-/** One WebGL context; on touch layouts its output is copied into canvases owned by each section. */
+/** One WebGL context; artwork always scrolls with canvases owned by each section. */
 export default function SectionScenes() {
   const canvas = useRef<HTMLCanvasElement>(null);
   const [localArtwork, setLocalArtwork] = useState(() => matchMedia(localArtworkQuery).matches);
@@ -75,21 +76,11 @@ export default function SectionScenes() {
       const contentTop = Math.max(0, hero?.getBoundingClientRect().bottom ?? 0);
       const contentBottom = Math.min(height, main?.getBoundingClientRect().bottom ?? height);
       const contentVisible = !!ambient && contentBottom > contentTop;
-      if (ambient && contentVisible) {
-        ambient.camera.aspect = width / height;
-        ambient.camera.updateProjectionMatrix();
-        ambient.update((now - start) / 1000, pointer, media.matches);
-        renderer.setViewport(0, 0, width, height);
-        renderer.setScissorTest(true);
-        renderer.setScissor(0, height - contentBottom, width, contentBottom - contentTop);
-        renderer.render(ambient.scene, ambient.camera);
-      }
       renderer.setScissorTest(true);
       let rendered = false;
       for (const element of visible) {
         const rect = element.getBoundingClientRect();
-        const bounds = artworkViewport(rect, width, height);
-        if (!bounds) continue;
+        if (!artworkViewport(rect, width, height)) continue;
         const kind = element.dataset.scene as SceneKind;
         if (!sceneKinds.includes(kind)) continue;
         let sculpture = sculptures.get(kind);
@@ -102,28 +93,34 @@ export default function SectionScenes() {
           sculpture.setTechnologies?.(getSkillTechnologies(element.dataset.technologyGroup));
         sculpture.camera.updateProjectionMatrix();
         sculpture.update((now - start) / 1000, pointer, media.matches);
-        if (localArtwork) {
-          let surface = surfaces.get(element);
-          if (!surface) {
-            const created = createArtworkSurface(element);
-            if (!created) continue;
-            surface = created;
-            surfaces.set(element, surface);
-          }
-          // Position is handled by the DOM, never by a scroll-dependent WebGL viewport.
-          renderer.setViewport(0, 0, rect.width, rect.height);
-          renderer.setScissor(0, 0, rect.width, rect.height);
-          renderer.clear();
-          renderer.render(sculpture.scene, sculpture.camera);
-          surface.draw(renderer.domElement, rect.width, rect.height, renderer.getPixelRatio());
-          rendered = true;
-          continue;
+        let surface = surfaces.get(element);
+        if (!surface) {
+          const created = createArtworkSurface(element);
+          if (!created) continue;
+          surface = created;
+          surfaces.set(element, surface);
         }
-        renderer.setViewport(...bounds.viewport);
-        renderer.setScissor(...bounds.scissor);
+        // Native/compositor scrolling moves the DOM canvas on desktop and touch layouts alike.
+        renderer.setViewport(0, 0, rect.width, rect.height);
+        renderer.setScissor(0, 0, rect.width, rect.height);
+        renderer.clear();
         renderer.render(sculpture.scene, sculpture.camera);
-        element.dataset.rendered = 'true';
+        surface.draw(renderer.domElement, rect.width, rect.height, renderer.getPixelRatio());
         rendered = true;
+      }
+      if (!localArtwork) {
+        // The fixed canvas displays only atmosphere. Clear temporary artwork before presentation.
+        renderer.setScissorTest(false);
+        renderer.clear();
+        if (ambient && contentVisible) {
+          ambient.camera.aspect = width / height;
+          ambient.camera.updateProjectionMatrix();
+          ambient.update((now - start) / 1000, pointer, media.matches);
+          renderer.setViewport(0, 0, width, height);
+          renderer.setScissorTest(true);
+          renderer.setScissor(0, height - contentBottom, width, contentBottom - contentTop);
+          renderer.render(ambient.scene, ambient.camera);
+        }
       }
       if ((rendered || contentVisible) && !media.matches) schedule();
     };

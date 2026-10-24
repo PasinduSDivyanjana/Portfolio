@@ -3,6 +3,173 @@ import { profile } from './profile';
 const github = profile.github;
 export const projects: Project[] = [
   {
+    id: 'jet-cargo-web',
+    featured: true,
+    flagship: true,
+    preview: { kind: 'browser', hostname: 'nightofsecrets.com' },
+    name: 'JET Cargo Management',
+    category: 'Web development',
+    type: 'Full-stack logistics platform',
+    image: 'jet-shipping-web.png',
+    text: 'Built for Jet Shipping & Logistic Sdn. Bhd., my largest web application brings cargo operations, shipping documents, package identification, and finance into one connected workspace. From collection intake and consolidated shipments to QR/barcode labels, invoices, receipts, payment records, and customer tracking, it supports the work behind each shipment.',
+    tech: ['React', 'JavaScript', 'Node.js', 'Express.js', 'MongoDB', 'jsPDF'],
+    url: 'https://nightofsecrets.com/',
+    highlightsTitle: 'Built around real logistics workflows.',
+    highlights: [
+      {
+        title: 'Collections & consolidation',
+        text: 'Manage shippers, consignees, boxes, and collection records, then consolidate collections under a shared House Bill of Lading (HBL). Connect collections to sea-freight shipment workspaces.',
+      },
+      {
+        title: 'QR codes, barcodes & stickers',
+        text: 'Generate package stickers with QR codes and CODE128 barcodes, export printable PDF sheets, and scan package codes with a device camera to support package identification and tracking updates.',
+      },
+      {
+        title: 'Invoices & shipping documents',
+        text: 'Prepare invoices, receipts, HBL documents, cargo manifests, and packing lists. Generate shipment documents from linked collection data, with PDF printing and Excel exports for manifests and packing lists.',
+      },
+      {
+        title: 'Payments, expenses & reporting',
+        text: 'Record part payments and payment methods, attach receipts or bills, and organize income and expenses by category. Review financial summaries, monthly income and expenses, and shipment-status reports.',
+      },
+      {
+        title: 'Tracking & cargo planning',
+        text: 'Provide public shipment and package tracking with status timelines. Manage shipment details, shipping agents, package dimensions, weight, and CBM calculations alongside the customer-facing service website.',
+      },
+      {
+        title: 'A workspace for the whole operation',
+        text: 'Bring customer records, enquiries, reviews, box items, and empty-box inventory into the admin workspace. Role and department permissions give operations and finance staff access to their relevant tools.',
+      },
+    ],
+    displayNumber: '01',
+    color: 'blue',
+  },
+  {
+    id: 'klyro-lms',
+    featured: true,
+    preview: { kind: 'browser', hostname: 'klyrolms.vercel.app' },
+    name: 'Klyro LMS',
+    category: 'Web development',
+    type: 'Learning management',
+    image: 'klyro-lms-website.png',
+    text: 'Built for Klyro (Pvt) Ltd during my internship. A learning platform for discovering courses, following learning paths, and bringing lessons, assessments, progress, and certificates together.',
+    tech: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'Express.js', 'MongoDB'],
+    url: 'https://klyrolms.vercel.app/',
+    highlightsTitle: 'From course discovery to completed learning.',
+    highlights: [
+      {
+        title: 'Course creation & organization',
+        text: 'Organize courses into sections and lessons, manage categories and tags, and build learning content through an instructor workspace with rich-text editing and reorderable course structures.',
+      },
+      {
+        title: 'Quizzes & assignments',
+        text: 'Bring assessments into the learning journey with quiz creation, assignment submissions, and instructor review workflows alongside the course lessons.',
+      },
+      {
+        title: 'Enrollment & learning progress',
+        text: 'Connect the course catalog, student enrollments, lesson progress, and dashboards so learners can find their courses and continue their learning in one place.',
+      },
+      {
+        title: 'Orders & payments',
+        text: 'Support course purchases through cart, order, coupon, and Stripe payment workflows, connecting payment records with access to the purchased learning content.',
+      },
+      {
+        title: 'Certificates & verification',
+        text: 'Manage certificate templates, issue course-completion certificates, and provide PDF downloads with a public verification link for checking an issued certificate.',
+      },
+      {
+        title: 'Communication & teaching tools',
+        text: 'Provide announcements, discussions, messages, live-session records, and notifications, with separate student, instructor, and administrator workflows.',
+      },
+    ],
+    displayNumber: '02',
+    color: 'violet',
+  },
+  {
+    id: 'access-transit',
+    featured: true,
+    preview: {
+      kind: 'phone',
+      imageFit: 'contain',
+      screenAspectRatio: 590 / 1280,
+      cameraCutout: false,
+    },
+    name: 'AccessTransit',
+    category: 'Mobile apps',
+    type: 'Inclusive public transport',
+    image: 'access-transit-app.jpeg',
+    text: 'A 3rd-year, 2nd-semester group project for inclusive public transport. Built with Flutter and Firebase, combining accessible journey planning, live bus tracking, boarding assistance, and community accessibility reports.',
+    tech: ['Flutter', 'Dart', 'Firebase', 'Cloud Firestore', 'OpenStreetMap'],
+    url: 'https://github.com/iWolfyy/AccessTransit',
+    highlightsTitle: 'Making public transport easier to navigate.',
+    highlights: [
+      {
+        title: 'Accessible journey planning',
+        text: 'Search for a journey, compare route options, and review route details with accessibility preferences such as wheelchair access, step-free travel, and reduced walking in mind.',
+      },
+      {
+        title: 'Live bus tracking & ETA',
+        text: 'Follow bus locations on an OpenStreetMap-based map through Firestore updates. Journey screens combine the moving bus position, arrival estimates, and handling for stale location signals.',
+      },
+      {
+        title: 'Boarding assistance & operator tools',
+        text: 'Request boarding assistance from the passenger journey and bring those requests into the operator dashboard, alongside bus occupancy and ramp-status controls.',
+      },
+      {
+        title: 'Community reports & personal preferences',
+        text: 'Share transport-accessibility issues through a community feed and report details. Save personal accessibility settings, including high contrast, larger targets, and route preferences.',
+      },
+    ],
+    displayNumber: '03',
+    color: 'blue',
+  },
+  {
+    id: 'disasterguard',
+    featured: true,
+    preview: {
+      kind: 'phone',
+      imageFit: 'contain',
+      screenAspectRatio: 590 / 1280,
+      cameraCutout: false,
+    },
+    name: 'DisasterGuard',
+    category: 'Mobile apps',
+    type: 'Disaster warning & coordination',
+    image: 'disasterguard-app.jpeg',
+    text: 'A 3rd-year, 2nd-semester group project for disaster early warning and emergency coordination in Sri Lanka. Built with React Native and Firebase, bringing local warnings, community hazard reports, shelter information, and relief coordination into one mobile app.',
+    tech: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Cloud Firestore'],
+    url: 'https://github.com/KalpaOfficial/Smart-Disaster-Early-Warning-and-Emergency-Coordination-System-for-Sri-Lanka',
+    highlightsTitle: 'From local warnings to coordinated response.',
+    highlights: [
+      {
+        title: 'Local warnings & hazard events',
+        text: 'Present local disaster warnings and event details to citizens while giving authorized officers workflows to create hazard events and coordinate warning information.',
+      },
+      {
+        title: 'Community ground reports',
+        text: 'Submit reports with location information and photographs, review reported incidents, and queue reports for synchronization when connectivity is unavailable.',
+      },
+      {
+        title: 'Shelters & available capacity',
+        text: 'Browse shelters by district, availability, and facilities, with maps and contact details. District officers can register shelters and maintain occupancy and activation records.',
+      },
+      {
+        title: 'Rescue & relief coordination',
+        text: 'Give district officers tools for rescue-team coordination and relief supplies, including inventory records, distribution activity, and recipient information.',
+      },
+      {
+        title: 'Post-event reporting',
+        text: 'Bring event information together in post-event reports, with report-file generation and PDF/CSV exports to support review and documentation after an emergency.',
+      },
+      {
+        title: 'Workspaces for different roles',
+        text: 'Use Firebase authentication and role-based workflows for citizens, volunteers, district officers, and DMC officers, keeping public information and operational management in their relevant workspaces.',
+      },
+    ],
+    displayNumber: '04',
+    color: 'violet',
+  },
+  {
     id: 'zenvia',
     featured: true,
     preview: { kind: 'browser', hostname: 'zenviavietnam.com' },
@@ -13,7 +180,26 @@ export const projects: Project[] = [
     text: 'A considered digital home for a premium Vietnamese skincare brand. Product discovery, ingredient transparency, and a refined shopping experience.',
     tech: ['Next.js', 'React', 'Tailwind CSS'],
     url: 'https://zenviavietnam.com/',
-    displayNumber: '01',
+    highlightsTitle: 'A considered digital home for skincare.',
+    highlights: [
+      {
+        title: 'Product discovery & detail',
+        text: 'Explore the skincare collection and dedicated product pages with product imagery, benefits, ingredient information, and availability-aware calls to action.',
+      },
+      {
+        title: 'Ingredient transparency',
+        text: 'Connect product ingredients with a dedicated ingredient library, helping visitors explore the ingredients and information behind the skincare range.',
+      },
+      {
+        title: 'Skincare guides & brand storytelling',
+        text: 'Bring educational skin guides, a visual gallery, and the brand story together with the product catalog in a consistent, responsive Next.js experience.',
+      },
+      {
+        title: 'Product-specific enquiries',
+        text: 'Open WhatsApp with the selected product already included in the message, supporting purchase enquiries for available products and launch enquiries for upcoming products.',
+      },
+    ],
+    displayNumber: '05',
     color: 'gold',
   },
   {
@@ -27,7 +213,26 @@ export const projects: Project[] = [
     text: 'A beauty and wellness storefront with product discovery, wishlists, WhatsApp ordering, and a complete admin back office.',
     tech: ['PHP', 'MySQL', 'Bootstrap'],
     url: 'https://sakuraeleganceworldwide.com/',
-    displayNumber: '02',
+    highlightsTitle: 'From product discovery to a WhatsApp order.',
+    highlights: [
+      {
+        title: 'Search, filters & product details',
+        text: 'Browse the storefront by category, search for products, and explore product galleries before adding items to a cart or wishlist.',
+      },
+      {
+        title: 'Cart & wishlist interactions',
+        text: 'Use session-backed carts and wishlists with JavaScript and AJAX updates, letting shoppers organize products and quantities as they browse.',
+      },
+      {
+        title: 'WhatsApp order handoff',
+        text: 'Prepare an order message with selected products, quantities, and totals, then hand the conversation to WhatsApp. Checkout activity is recorded in the order log.',
+      },
+      {
+        title: 'Store administration',
+        text: 'Manage products, uploaded product images, categories, and order records through a PHP and MySQL admin panel, with a dashboard for the store team.',
+      },
+    ],
+    displayNumber: '06',
     color: 'rose',
   },
   {
@@ -40,7 +245,7 @@ export const projects: Project[] = [
     image: 'jet-shipping-app.jpg',
     text: 'From booking a box to tracking its journey. A mobile cargo platform that brings clarity to the entire shipping cycle.',
     tech: ['Mobile development', 'Real-time tracking'],
-    displayNumber: '03',
+    displayNumber: '07',
     color: 'blue',
   },
   {
@@ -54,7 +259,7 @@ export const projects: Project[] = [
     text: 'Connecting people with Ayurvedic wellness through treatment bookings, herbal products, and secure online payments.',
     tech: ['MERN stack', 'Stripe'],
     url: github + '/Sath-Villa-Ayurvedic-Resort-Web-App',
-    displayNumber: '04',
+    displayNumber: '08',
     color: 'green',
   },
   {
@@ -67,7 +272,7 @@ export const projects: Project[] = [
     image: 'wellness-tracker-app.jpg',
     text: 'An Android companion for healthier days, with habit tracking, mood journals, hydration reminders, and weekly insights.',
     tech: ['Kotlin', 'Android'],
-    displayNumber: '05',
+    displayNumber: '09',
     color: 'violet',
   },
   {
@@ -81,7 +286,7 @@ export const projects: Project[] = [
     text: 'An online marketplace connecting shoppers and sellers, with inventory management, payments, and product reviews.',
     tech: ['Java', 'JavaScript', 'Tailwind CSS'],
     url: github + '/ShopStyle-Web-App',
-    displayNumber: '06',
+    displayNumber: '10',
     color: 'sand',
   },
 ];

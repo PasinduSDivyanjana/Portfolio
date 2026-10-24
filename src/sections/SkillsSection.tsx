@@ -81,7 +81,7 @@ export function SkillsSection() {
             ))}
           </div>
           <p className="toolkit-note">
-            Building across the web, mobile, and everything in between.
+            A focused stack for building thoughtful web and mobile experiences.
           </p>
         </div>
       </div>

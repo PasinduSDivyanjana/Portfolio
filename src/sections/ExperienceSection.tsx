@@ -1,6 +1,6 @@
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { useState } from 'react';
-import { Minus, Plus } from 'lucide-react';
+import { ArrowUpRight, Minus, Plus } from 'lucide-react';
 import { experience } from '../data/experience';
 export function ExperienceSection() {
   const [journey, setJourney] = useState(0);
@@ -30,7 +30,12 @@ export function ExperienceSection() {
               aria-controls={'journey-content-' + i}
               onClick={() => setJourney(journey === i ? -1 : i)}
             >
-              <span className="timeline-tag">{item.tag}</span>
+              <span className="timeline-tag">
+                <span className={'company-logo company-logo-' + item.id}>
+                  <img src={item.logo} alt="" width={64} height={64} loading="lazy" />
+                </span>
+                <span>{item.tag}</span>
+              </span>
               <span className="timeline-title">
                 <strong>{item.title}</strong>
                 <span>{item.place}</span>
@@ -40,7 +45,14 @@ export function ExperienceSection() {
               </span>
             </button>
             <div id={'journey-content-' + i} hidden={journey !== i}>
+              <p className="timeline-period">{item.period}</p>
+              {item.completion && <p className="timeline-completion">{item.completion}</p>}
               <p>{item.text}</p>
+              {item.projectUrl && (
+                <a className="inline-link" href={item.projectUrl} target="_blank" rel="noreferrer">
+                  {item.projectLabel} <ArrowUpRight size={16} />
+                </a>
+              )}
             </div>
           </article>
         ))}

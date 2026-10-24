@@ -1,9 +1,25 @@
 export const experience = [
   {
+    id: 'klyro',
+    tag: 'INTERNSHIP',
+    title: 'Software Engineering Intern',
+    place: 'Klyro (Pvt) Ltd',
+    logo: './Images/Experience/klyro-logo.jpeg',
+    period: '13 July 2026 – Present',
+    completion: 'Scheduled completion: 13 January 2027',
+    text: 'Developing full-stack web experiences for Klyro (Pvt) Ltd, including Klyro LMS — a learning management platform for students and instructors. Working across a React and TypeScript frontend and a Node.js, Express, and MongoDB backend.',
+    projectUrl: 'https://klyrolms.vercel.app/',
+    projectLabel: 'Explore Klyro LMS',
+  },
+  {
     id: 'jet-shipping',
     tag: 'EXPERIENCE',
     title: 'IT Consultant & Web Developer',
     place: 'Jet Shipping & Logistic Sdn. Bhd.',
-    text: 'Full time · December 2024 – Present. Bringing together web development and hands-on IT consulting to build practical digital solutions for cargo and logistics.',
+    logo: './Images/Experience/jet-shipping-logo.jpeg',
+    period: 'Full time · December 2024 – Present',
+    text: 'Building practical digital solutions for cargo and logistics, including JET Cargo Management — a full-stack web platform connecting collections, shipment tracking, QR/barcode stickers, shipping documents, payment records, and finance reporting. Combining web development with hands-on IT consulting for the company.',
+    projectUrl: 'https://nightofsecrets.com/',
+    projectLabel: 'Explore JET Cargo Management',
   },
 ];
